@@ -1,0 +1,2934 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Draaiboek</title>
+<style>
+/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+@layer theme {
+    :root,:host {
+        --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --spacing: .25rem;
+        --default-font-family: var(--font-sans);
+        --default-mono-font-family: var(--font-mono)
+    }
+}
+
+@layer base {
+    *,:after,:before {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
+
+    ::backdrop {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
+
+    ::file-selector-button {
+        box-sizing: border-box;
+        border: 0 solid;
+        margin: 0;
+        padding: 0
+    }
+
+    html,: host {
+        -webkit-text-size-adjust:100%;
+        tab-size: 4;
+        line-height: 1.5;
+        font-family: var(--default-font-family,ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+        font-feature-settings: var(--default-font-feature-settings,normal);
+        font-variation-settings: var(--default-font-variation-settings,normal);
+        -webkit-tap-highlight-color: transparent
+    }
+
+    hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px
+    }
+
+    abbr: where([title]) {
+        -webkit-text-decoration:underline dotted;
+        text-decoration: underline dotted
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-size: inherit;
+        font-weight: inherit
+    }
+
+    a {
+        color: inherit;
+        -webkit-text-decoration: inherit;
+        -webkit-text-decoration: inherit;
+        text-decoration: inherit
+    }
+
+    b,strong {
+        font-weight: bolder
+    }
+
+    code,kbd,samp,pre {
+        font-family: var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+        font-feature-settings: var(--default-mono-font-feature-settings,normal);
+        font-variation-settings: var(--default-mono-font-variation-settings,normal);
+        font-size: 1em
+    }
+
+    small {
+        font-size: 80%
+    }
+
+    sub,sup {
+        vertical-align: baseline;
+        font-size: 75%;
+        line-height: 0;
+        position: relative
+    }
+
+    sub {
+        bottom: -.25em
+    }
+
+    sup {
+        top: -.5em
+    }
+
+    table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse
+    }
+
+    :-moz-focusring {
+        outline: auto
+    }
+
+    progress {
+        vertical-align: baseline
+    }
+
+    summary {
+        display: list-item
+    }
+
+    ol,ul,menu {
+        list-style: none
+    }
+
+    img,svg,video,canvas,audio,iframe,embed,object {
+        vertical-align: middle;
+        display: block
+    }
+
+    img,video {
+        max-width: 100%;
+        height: auto
+    }
+
+    button,input,select,optgroup,textarea {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        opacity: 1;
+        background-color: #0000;
+        border-radius: 0
+    }
+
+    ::file-selector-button {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        opacity: 1;
+        background-color: #0000;
+        border-radius: 0
+    }
+
+    :where(select: is([multiple],[size])) optgroup {
+        font-weight:bolder
+    }
+
+    :where(select: is([multiple],[size])) optgroup option {
+        padding-inline-start:20px
+    }
+
+    ::file-selector-button {
+        margin-inline-end:4px}
+
+    ::placeholder {
+        opacity: 1
+    }
+
+    @supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size:1px) {
+        ::placeholder {
+            color:currentColor
+        }
+
+        @supports (color: color-mix(in lab, red, red)) {
+            ::placeholder {
+                color:color-mix(in oklab, currentcolor 50%, transparent)
+            }
+        }
+    }
+
+    textarea {
+        resize: vertical
+    }
+
+    ::-webkit-search-decoration {
+        -webkit-appearance: none
+    }
+
+    ::-webkit-date-and-time-value {
+        min-height: 1lh;
+        text-align: inherit
+    }
+
+    ::-webkit-datetime-edit {
+        display: inline-flex
+    }
+
+    ::-webkit-datetime-edit-fields-wrapper {
+        padding: 0
+    }
+
+    ::-webkit-datetime-edit {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-year-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-month-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-day-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-hour-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-minute-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-second-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-millisecond-field {
+        padding-block:0}
+
+    ::-webkit-datetime-edit-meridiem-field {
+        padding-block:0}
+
+    ::-webkit-calendar-picker-indicator {
+        line-height: 1
+    }
+
+    :-moz-ui-invalid {
+        box-shadow: none
+    }
+
+    button,input: where([type=button],[type=reset],[type=submit]) {
+        -webkit-appearance:button;
+        appearance: button
+    }
+
+    ::file-selector-button {
+        -webkit-appearance: button;
+        appearance: button
+    }
+
+    ::-webkit-inner-spin-button {
+        height: auto
+    }
+
+    ::-webkit-outer-spin-button {
+        height: auto
+    }
+
+    [hidden]: where(:not([hidden=until-found])) {
+        display:none!important
+    }
+}
+
+@layer components;@layer utilities {
+    .start {
+        inset-inline-start: var(--spacing)
+    }
+
+    .end {
+        inset-inline-end: var(--spacing)
+    }
+
+    .table {
+        display: table
+    }
+}
+
+:root {
+    --ink: #171714;
+    --paper: #f3f0e8;
+    --acid: #d8ff45;
+    --muted: #6d6b62;
+    --line: #d8d4ca
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    margin: 0;
+    font-family: Arial,Helvetica,sans-serif
+}
+
+button,input,select {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+.topbar {
+    border-bottom: 1px solid var(--line);
+    justify-content: space-between;
+    align-items: center;
+    min-height: 78px;
+    padding: 0 5vw;
+    display: flex
+}
+
+.brand {
+    color: inherit;
+    letter-spacing: -1px;
+    align-items: center;
+    gap: 11px;
+    font-size: 20px;
+    font-weight: 900;
+    text-decoration: none;
+    display: flex
+}
+
+.brand-mark {
+    background: var(--ink);
+    width: 35px;
+    height: 35px;
+    color: var(--acid);
+    border-radius: 50%;
+    place-items: center;
+    display: grid;
+    transform: rotate(-8deg)
+}
+
+.secure-note {
+    color: var(--muted);
+    font-size: 12px
+}
+
+.secure-note span {
+    color: #56a536;
+    margin-right: 5px;
+    font-size: 9px
+}
+
+.hero {
+    text-align: center;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 84px 24px 66px;
+    position: relative;
+    overflow: hidden
+}
+
+.hero:before,.hero:after {
+    content: "";
+    border: 1px solid var(--line);
+    z-index: -1;
+    border-radius: 50%;
+    position: absolute
+}
+
+.hero:before {
+    width: 360px;
+    height: 180px;
+    top: 55px;
+    left: -230px;
+    transform: rotate(-15deg)
+}
+
+.hero:after {
+    width: 340px;
+    height: 340px;
+    top: 6px;
+    right: -280px
+}
+
+.eyebrow,.kicker {
+    letter-spacing: .2em;
+    font-size: 11px;
+    font-weight: 800
+}
+
+.eyebrow {
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    margin-bottom: 22px;
+    padding: 7px 12px;
+    display: inline-block
+}
+
+h1 {
+    letter-spacing: -.075em;
+    margin: 0;
+    font-size: clamp(48px,7.3vw,105px);
+    font-weight: 950;
+    line-height: .9
+}
+
+h1 em {
+    font-family: Georgia,Times New Roman,serif;
+    font-weight: 400
+}
+
+.intro {
+    max-width: 600px;
+    color: var(--muted);
+    margin: 28px auto 32px;
+    font-size: 17px;
+    line-height: 1.55
+}
+
+.url-card {
+    text-align: left;
+    max-width: 800px;
+    box-shadow: 8px 8px 0 var(--ink);
+    background: #fff;
+    border: 1px solid #dedbd2;
+    margin: 0 auto;
+    padding: 20px
+}
+
+.url-card label {
+    margin-bottom: 9px;
+    font-size: 13px;
+    font-weight: 800;
+    display: block
+}
+
+.url-row {
+    background: #faf9f5;
+    border: 1px solid #bcb9b0;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    display: grid
+}
+
+.link-icon {
+    color: var(--muted);
+    padding-left: 15px
+}
+
+.url-row input {
+    background: 0 0;
+    border: 0;
+    outline: 0;
+    min-width: 0;
+    padding: 16px 12px
+}
+
+.url-row button,.download-button {
+    background: var(--acid);
+    color: var(--ink);
+    border: 0;
+    padding: 16px 21px;
+    font-weight: 900
+}
+
+.url-row button:disabled,.download-button:disabled {
+    cursor: not-allowed;
+    opacity: .5
+}
+
+.url-row button {
+    border-left: 1px solid var(--ink)
+}
+
+.url-row button span,.download-button span {
+    margin-left: 14px
+}
+
+.url-card>p {
+    color: #858176;
+    margin: 10px 0 0;
+    font-size: 11px
+}
+
+.status-message {
+    border-left: 4px solid var(--orange);
+    text-align: left;
+    background: #fff0ea;
+    max-width: 800px;
+    margin: 21px auto 0;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5
+}
+
+.status-message.success {
+    background: #effbd0;
+    border-color: #85a90e
+}
+
+.schedule-shell {
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    padding: 0 24px
+}
+
+.source-line {
+    color: var(--muted);
+    justify-content: space-between;
+    gap: 18px;
+    padding-bottom: 14px;
+    font-size: 12px;
+    display: flex
+}
+
+.source-line span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.source-line a {
+    color: var(--ink);
+    flex: none;
+    font-weight: 800
+}
+
+.schedule-header {
+    border-bottom: 2px solid var(--ink);
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 3px 18px;
+    display: flex
+}
+
+.schedule-header h2 {
+    letter-spacing: -.04em;
+    margin: 7px 0 0;
+    font-size: 31px
+}
+
+.selection-count {
+    align-items: center;
+    gap: 10px;
+    display: flex
+}
+
+.selection-count strong {
+    font-family: Georgia,serif;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 400
+}
+
+.selection-count span {
+    color: var(--muted);
+    font-size: 12px
+}
+
+.sets {
+    border-bottom: 1px solid var(--ink)
+}
+
+.selection-tools {
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 12px 0 0;
+    display: flex
+}
+
+.selection-tools button {
+    color: var(--muted);
+    background: 0 0;
+    border: 0;
+    padding: 5px 7px;
+    font-size: 11px;
+    text-decoration: underline
+}
+
+.set-row {
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    grid-template-columns: 30px 84px 140px 1fr 1fr 54px;
+    align-items: center;
+    gap: 18px;
+    min-height: 88px;
+    display: grid;
+    position: relative
+}
+
+.set-row:last-child {
+    border-bottom: 0
+}
+
+.set-row input {
+    opacity: 0;
+    position: absolute
+}
+
+.custom-check {
+    border: 1px solid var(--ink);
+    background: var(--acid);
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 13px;
+    font-weight: 900;
+    display: grid
+}
+
+.set-unchecked {
+    opacity: .5
+}
+
+.set-unchecked .custom-check {
+    background: 0 0
+}
+
+.set-row:focus-within .custom-check {
+    outline-offset: 2px;
+    outline: 3px solid #17171438
+}
+
+.day-pill {
+    border: 1px solid var(--ink);
+    text-transform: uppercase;
+    border-radius: 999px;
+    width: fit-content;
+    padding: 6px 9px;
+    font-size: 10px;
+    font-weight: 900
+}
+
+.set-time {
+    font-family: Courier New,monospace;
+    font-size: 13px
+}
+
+.set-name {
+    letter-spacing: -.04em;
+    font-size: 24px;
+    font-weight: 900
+}
+
+.set-area {
+    color: var(--muted);
+    font-size: 14px
+}
+
+.number {
+    color: #b7b3aa;
+    text-align: right;
+    font-family: Georgia,serif;
+    font-size: 34px;
+    font-style: italic
+}
+
+.export-bar {
+    justify-content: space-between;
+    align-items: end;
+    padding-top: 24px;
+    display: flex
+}
+
+.reminder-fieldset {
+    border: 0;
+    min-width: 410px;
+    margin: 0;
+    padding: 0
+}
+
+.reminder-fieldset legend {
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    display: block
+}
+
+.reminder-options {
+    gap: 18px;
+    margin-bottom: 11px;
+    display: flex
+}
+
+.radio-label {
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex
+}
+
+.custom-reminder {
+    display: flex
+}
+
+.custom-reminder input {
+    background: 0 0;
+    border: 1px solid #aaa69c;
+    border-right: 0;
+    width: 90px;
+    padding: 11px
+}
+
+.custom-reminder select {
+    background: 0 0;
+    border: 1px solid #aaa69c;
+    min-width: 120px;
+    padding: 11px
+}
+
+.download-button {
+    border: 1px solid var(--ink);
+    min-width: 240px;
+    box-shadow: 5px 5px 0 var(--ink);
+    padding: 16px 20px
+}
+
+.calendar-note {
+    color: var(--muted);
+    text-align: right;
+    margin: 18px 0 0;
+    font-size: 11px
+}
+
+.empty-state {
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    padding: 0 24px
+}
+
+.empty-state>.kicker {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 17px
+}
+
+.steps {
+    grid-template-columns: repeat(3,1fr);
+    display: grid
+}
+
+.steps>div {
+    border-bottom: 1px solid var(--ink);
+    min-height: 200px;
+    padding: 28px 28px 28px 0
+}
+
+.steps>div+div {
+    border-left: 1px solid var(--line);
+    padding-left: 28px
+}
+
+.steps strong {
+    color: #b7b3aa;
+    font-family: Georgia,serif;
+    font-size: 36px;
+    font-style: italic
+}
+
+.steps h2 {
+    margin: 18px 0 8px;
+    font-size: 22px
+}
+
+.steps p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5
+}
+
+footer {
+    border-top: 1px solid var(--line);
+    min-height: 110px;
+    color: var(--muted);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+    display: flex
+}
+
+footer span {
+    letter-spacing: .2em;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 900
+}
+
+footer p {
+    font-family: Georgia,serif;
+    font-style: italic
+}
+
+@media (max-width: 760px) {
+    .topbar {
+        min-height:66px
+    }
+
+    .secure-note {
+        display: none
+    }
+
+    .hero {
+        padding-top: 58px
+    }
+
+    h1 {
+        font-size: clamp(44px,14vw,70px)
+    }
+
+    .url-card {
+        box-shadow: 5px 5px 0 var(--ink);
+        padding: 14px
+    }
+
+    .url-row {
+        grid-template-columns: auto 1fr
+    }
+
+    .url-row button {
+        border: 0;
+        border-top: 1px solid var(--ink);
+        grid-column: 1/-1
+    }
+
+    .set-row {
+        grid-template-columns: 30px 78px 1fr 36px;
+        gap: 10px;
+        padding: 14px 0
+    }
+
+    .set-time {
+        grid-column: 2
+    }
+
+    .set-name {
+        grid-area: 1/3;
+        font-size: 20px
+    }
+
+    .set-area {
+        grid-area: 2/3
+    }
+
+    .number {
+        grid-area: 1/4/3
+    }
+
+    .export-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px
+    }
+
+    .reminder-fieldset,.download-button {
+        width: 100%;
+        min-width: 0
+    }
+
+    .custom-reminder input {
+        width: 40%
+    }
+
+    .custom-reminder select {
+        width: 60%
+    }
+
+    .calendar-note {
+        text-align: left
+    }
+
+    .steps {
+        grid-template-columns: 1fr
+    }
+
+    .steps>div {
+        min-height: 0;
+        padding: 22px 0
+    }
+
+    .steps>div+div {
+        border-left: 0;
+        padding-left: 0
+    }
+
+    footer {
+        min-height: 90px
+    }
+}
+
+
+/* Standalone version */
+.url-card { display:none; }
+.status-message { display:none; }
+.source-line a { display:none; }
+.secure-note span { color:#56a536; }
+.set-row.set-unchecked { opacity:.5; }
+
+</style>
+<style>
+.url-card,.source-line,.topbar,.hero{display:none!important}
+.schedule-shell{padding-top:0!important}
+.schedule-header{position:sticky;top:0;z-index:50;background:#111;color:#fff;border-bottom:1px solid rgba(255,255,255,.15)}
+.selection-tools{position:sticky;top:78px;z-index:49;background:#fff;border-bottom:1px solid #ddd;display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.selection-tools .filter-group{display:flex;align-items:center;gap:8px}
+.selection-tools select{padding:7px 28px 7px 9px;border:1px solid #bbb;border-radius:5px;background:#fff;font:inherit}
+.selection-tools button{font:inherit}
+.filter-label{font-weight:600}.toggle{display:flex;align-items:center;gap:5px}
+.set-row{cursor:pointer}.set-unchecked{opacity:.48}
+</style><style>
+.export-bar{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  padding:14px 0;
+}
+.schedule-header{
+  position:sticky;
+  top:76px;
+  z-index:50;
+}
+.selection-tools{
+  position:sticky;
+  top:154px;
+  z-index:49;
+}
+@media (max-width:700px){
+  .export-bar{top:0}
+  .schedule-header{top:105px}
+  .selection-tools{top:183px}
+}
+</style><style>.set-row .number { display:none !important; }</style><style>.set-name { text-transform: none !important; }</style><style>
+.schedule-header { display:none !important; }
+.selection-tools { position:sticky; top:0; z-index:60; }
+#downloadButton:disabled {
+  opacity:.45;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+</style><style>
+/* Mobile-first timetable presentation */
+.set-row .day-pill {
+  font-size: 0;
+  font-weight: 700;
+  background: #111 !important;
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 6px 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+}
+.set-row .day-pill::after {
+  font-size: 13px;
+}
+.set-row .set-time {
+  color: #111 !important;
+  font-weight: 700;
+  display: block;
+  margin-top: 4px;
+}
+.set-row .set-name {
+  text-transform: none !important;
+}
+@media (max-width: 700px) {
+  .selection-tools {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+  .selection-tools .clear-group {
+    order: 1;
+    flex: 0 0 100%;
+    justify-content: flex-end;
+  }
+  .selection-tools .day-filters {
+    order: 2;
+    flex: 0 1 auto;
+    gap: 8px;
+  }
+  .selection-tools .sort-group {
+    order: 3;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  .selection-tools .sort-group select {
+    max-width: 112px;
+  }
+  .selection-tools .current-day {
+    order: 4;
+  }
+  .set-row {
+    grid-template-columns: auto 1fr auto !important;
+  }
+}
+</style><style>
+.set-row .day-pill.day-only::after {
+  content: attr(data-day);
+}
+</style><style>
+/* Alleen de later gevraagde weergavewijzigingen; de v13-functionaliteit blijft intact. */
+.selection-tools {
+  justify-content: flex-start;
+}
+.export-bar {
+  position: relative !important;
+  top: auto !important;
+}
+.selection-tools {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100;
+  background: #fff;
+}
+.download-button {
+  box-shadow: none !important;
+}
+.reminder-fieldset {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 18px;
+}
+.reminder-fieldset .reminder-title {
+  grid-column: 1;
+  margin: 0 !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 800;
+}
+.reminder-fieldset .reminder-options {
+  grid-column: 2;
+  margin: 0 !important;
+}
+.reminder-fieldset .custom-reminder {
+  grid-column: 1 / -1;
+  margin-top: 11px;
+}
+.export-bar-bottom {
+  border-top: 1px solid var(--line);
+  border-bottom: 0 !important;
+  margin-top: 22px;
+  padding-bottom: 24px;
+}
+.current-day {
+  flex: 1 0 100%;
+  min-height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 900;
+  line-height: 1;
+}
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.search-box {
+  position: relative;
+  display: block;
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 13px;
+}
+#artistSearch {
+  width: 210px;
+  min-height: 36px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background: #fff;
+  padding: 7px 10px 7px 32px;
+  font: inherit;
+}
+.clear-search {
+  display: none;
+}
+.clear-group {
+  gap: 10px;
+}
+.download-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 240px;
+  min-width: 240px;
+}
+.download-stack .download-button,
+.download-stack .search-group,
+.download-stack .search-box,
+.download-stack #artistSearch {
+  width: 100%;
+  min-width: 0;
+}
+@media (min-width: 701px) {
+  .selection-tools {
+    display: grid !important;
+    grid-template-columns: 1fr auto auto 1fr;
+    align-items: center;
+    gap: 8px 12px;
+  }
+  .selection-tools .clear-group {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .selection-tools .day-filters {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+  .selection-tools .sort-group {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: start;
+  }
+  .selection-tools .current-day {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+.set-row .day-pill {
+  display: none !important;
+}
+.set-row {
+  grid-template-columns: 30px max-content minmax(0, 1fr) minmax(90px, .55fr) !important;
+  column-gap: 20px !important;
+  align-items: center !important;
+  text-align: left;
+}
+.set-row .set-time {
+  grid-column: 2 !important;
+  min-width: max-content;
+  margin-top: 0 !important;
+  white-space: nowrap !important;
+}
+.set-row .set-name {
+  grid-area: auto !important;
+  min-width: 0;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
+.set-row .set-area {
+  grid-area: auto !important;
+  min-width: 0;
+}
+@media (max-width: 700px) {
+  .download-stack {
+    width: 100%;
+    min-width: 0;
+  }
+  .selection-tools .search-group {
+    order: 1;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .selection-tools .clear-group {
+    order: 2;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+  }
+  .selection-tools .day-filters {
+    order: 3;
+    flex: 0 1 auto;
+    white-space: nowrap;
+  }
+  .selection-tools .sort-group {
+    order: 4;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+  .selection-tools .current-day {
+    order: 5;
+  }
+  .clear-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0 !important;
+    border: 1px solid #bbb !important;
+    border-radius: 5px;
+    color: var(--ink) !important;
+    text-decoration: none !important;
+    font-size: 22px !important;
+    line-height: 1;
+  }
+  .search-box {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  #artistSearch {
+    width: 100%;
+    min-width: 0;
+  }
+  .set-row {
+    grid-template-columns: 30px max-content minmax(0, 1fr) !important;
+    row-gap: 7px !important;
+    column-gap: 14px !important;
+  }
+  .set-row .set-area {
+    grid-column: 2 / -1 !important;
+    grid-row: 2 !important;
+  }
+}
+.set-row.set-unchecked {
+  opacity: .72 !important;
+}
+.set-row.set-unchecked .set-time,
+.set-row.set-unchecked .set-name {
+  color: #171714 !important;
+}
+.set-row.set-unchecked .set-area {
+  color: #44423d !important;
+}
+@media (max-width: 700px) {
+  .selection-tools {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 8px 10px;
+  }
+  .selection-tools .search-group {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+  }
+  .selection-tools .clear-group {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .selection-tools .day-filters {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    min-width: 0;
+  }
+  .selection-tools .sort-group {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    margin-left: 0;
+  }
+  .selection-tools .current-day {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: 100%;
+  }
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  #clearAll {
+    display: none;
+  }
+  .selection-tools .clear-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+  }
+  .selection-tools .clear-group button {
+    white-space: nowrap;
+  }
+  .selection-tools .search-group {
+    align-self: center;
+  }
+  .set-row {
+    grid-template-rows: auto !important;
+    align-items: start !important;
+  }
+  .set-row .set-time {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+  }
+  .set-row .set-area {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    margin-top: 2.2em !important;
+    white-space: nowrap;
+  }
+  .set-row .set-name {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+  }
+}
+.download-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.calendar-info-button {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #aaa69c;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  padding: 0;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+.calendar-info-message {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 200;
+  width: min(420px, calc(100vw - 32px));
+  transform: translate(-50%, 16px);
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  pointer-events: none;
+}
+.calendar-info-message.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+.calendar-info-message.desktop-position {
+  position: absolute;
+  left: auto;
+  right: calc(100% - 34px + 8px);
+  bottom: auto;
+  top: 50%;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  transform: translate(-8px, -50%);
+  text-align: right;
+}
+.calendar-info-message.desktop-position.show {
+  transform: translate(0, -50%);
+}
+.calendar-info-message.portrait-position {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  top: var(--info-top, 190px);
+  width: calc(100vw - 48px);
+  max-width: 360px;
+  transform: translate(-50%, -8px);
+  text-align: center;
+}
+.calendar-info-message.portrait-position.show {
+  transform: translate(-50%, 0);
+}
+.calendar-info-message.landscape-position {
+  position: fixed;
+  left: var(--info-landscape-left, 50%);
+  right: auto;
+  top: var(--info-landscape-top, 50%);
+  bottom: auto;
+  width: max-content;
+  max-width: calc(100vw - var(--info-landscape-left, 50%) - 16px);
+  transform: translate(8px, -50%);
+  text-align: left;
+}
+.calendar-info-message.landscape-position.show {
+  transform: translate(0, -50%);
+}
+@media (min-width: 701px) {
+  .download-stack {
+    width: 286px;
+    min-width: 286px;
+  }
+  .download-stack .download-row {
+    width: 286px;
+  }
+  .download-stack .download-row .download-button {
+    width: 240px;
+    min-width: 240px;
+  }
+  .download-stack #desktopSearchSlot {
+    width: 240px;
+    margin-left: 46px;
+  }
+  .download-row .calendar-info-button {
+    order: 1;
+  }
+  .download-row .download-button {
+    order: 2;
+  }
+}
+@media (max-width: 700px) and (orientation: landscape),
+       (orientation: landscape) and (max-height: 600px),
+       (orientation: landscape) and (pointer: coarse) {
+  .download-row {
+    width: 100%;
+  }
+  .download-row .download-button {
+    order: 1;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+  .download-row .calendar-info-button {
+    order: 2;
+  }
+  .download-stack #desktopSearchSlot {
+    width: calc(100% - 44px);
+    margin-left: 0;
+  }
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  .clear-search {
+    display: none !important;
+  }
+  .custom-reminder {
+    position: relative;
+  }
+  .custom-reminder input {
+    width: 35%;
+  }
+  .custom-reminder select {
+    width: calc(65% - 40px);
+  }
+  .custom-reminder .calendar-info-button {
+    margin-left: 6px;
+  }
+  .download-row,
+  .download-row .download-button {
+    width: 100%;
+  }
+}
+@media (min-width: 701px) and (hover: hover) and (pointer: fine) {
+  .set-row .set-time {
+    font-size: 15px;
+  }
+}
+.set-row input[type="checkbox"] {
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  margin: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .set-row input[type="checkbox"] {
+    width: 44px;
+  }
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  .reminder-title,
+  .selection-tools .day-filters {
+    padding-left: 1px;
+  }
+  .custom-reminder {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 72px;
+    align-items: center;
+    width: 100%;
+  }
+  .custom-reminder input,
+  .custom-reminder select {
+    width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+    height: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1.2;
+    text-align: center;
+    text-align-last: center;
+  }
+  .custom-reminder input {
+    border-radius: 6px 0 0 6px;
+  }
+  .custom-reminder select {
+    border-radius: 0 6px 6px 0;
+  }
+  .custom-reminder .calendar-info-button {
+    grid-column: 3;
+    place-self: center;
+    margin: 0;
+    transform: translateX(6px);
+  }
+  .selection-tools {
+    grid-template-columns: minmax(0, 1fr) 112px;
+  }
+  .selection-tools .clear-group,
+  #selectAll,
+  #sortSelect {
+    width: 112px;
+    min-width: 112px;
+    box-sizing: border-box;
+  }
+  #selectAll {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    background: #fff;
+    padding: 7px 9px;
+    font: inherit;
+    color: var(--ink);
+    font-weight: 400;
+    text-decoration: none;
+  }
+  .selection-tools .search-box,
+  #sortSelect {
+    height: 40px;
+    box-sizing: border-box;
+  }
+  #artistSearch {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  #sortSelect {
+    padding-left: 12px;
+    padding-right: 22px;
+    text-align: center;
+    text-align-last: center;
+  }
+  #sortSelect option {
+    text-align: center;
+  }
+  .selection-tools .current-day {
+    border-radius: 0;
+  }
+  .set-row {
+    grid-template-rows: auto auto !important;
+    align-content: center !important;
+    align-items: center !important;
+  }
+  .set-row .set-time {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+  }
+  .set-row .set-area {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    margin-top: 0 !important;
+  }
+  .set-row .set-name {
+    grid-column: 3 !important;
+    grid-row: 1 / 3 !important;
+    align-self: center !important;
+  }
+  .set-row .custom-check {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    align-self: auto !important;
+  }
+}
+.visual-view-controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.visual-toggle-button {
+  width: 112px;
+  min-width: 112px;
+  height: 40px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+  padding: 7px 9px;
+  font: inherit;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.visual-toggle-button:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+.sort-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sort-group #sortSelect {
+  width: 112px;
+  min-width: 112px;
+  height: 40px;
+  box-sizing: border-box;
+}
+.calendar-info-message span {
+  display: block;
+}
+.calendar-info-message span + span {
+  margin-top: 4px;
+}
+.visual-schedule[hidden],
+.sets[hidden],
+.current-day[hidden] {
+  display: none !important;
+}
+.visual-schedule {
+  padding: 6px 0 24px;
+}
+.visual-empty {
+  border: 1px solid var(--line);
+  padding: 28px 18px;
+  text-align: center;
+  color: var(--muted);
+}
+.visual-day {
+  margin-top: 18px;
+}
+.visual-day-title {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.visual-scroll {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding-bottom: 8px;
+}
+.visual-chart {
+  position: relative;
+  width: 100%;
+  min-width: 900px;
+  border: 1px solid var(--line);
+  background: #fbfaf7;
+}
+.visual-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #d8d4ca;
+  pointer-events: none;
+}
+.visual-tick-label {
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  color: #67645d;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.visual-set-block {
+  position: absolute;
+  height: 64px;
+  overflow: hidden;
+  border: 1px solid #8c8a82;
+  background: var(--acid);
+  color: var(--ink);
+  padding: 7px 9px;
+  box-sizing: border-box;
+  line-height: 1.15;
+  cursor: pointer;
+}
+.visual-set-block.has-overlap {
+  border-color: #b05b00;
+  background: #ffd28a;
+}
+.visual-set-name {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.visual-set-meta {
+  overflow: hidden;
+  margin-top: 5px;
+  display: flex;
+  gap: 4px;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.visual-set-area::before {
+  content: "· ";
+}
+.visual-set-block.is-expanded {
+  z-index: 50;
+  min-height: 88px;
+  height: auto;
+  overflow: visible;
+  box-shadow: 0 5px 14px rgba(23, 23, 20, .18);
+}
+.visual-set-block.is-expanded .visual-set-name {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+.visual-set-block.is-expanded .visual-set-meta {
+  display: block;
+  overflow: visible;
+  white-space: normal;
+}
+.visual-set-block.is-expanded .visual-set-area {
+  margin-top: 4px;
+}
+.visual-set-block.is-expanded .visual-set-area::before {
+  content: none;
+}
+@media (min-width: 1000px) {
+  .schedule-shell {
+    width: 100%;
+    max-width: 1500px;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 700px),
+       (orientation: landscape) and (max-height: 600px),
+       (orientation: landscape) and (pointer: coarse) {
+  .visual-set-meta {
+    display: block;
+  }
+  .visual-set-area {
+    margin-top: 2px;
+  }
+  .visual-set-area::before {
+    content: none;
+  }
+}
+@media (max-width: 700px) {
+  .visual-view-controls { display: none; }
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  .selection-tools .current-day {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 112px;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+  .current-day-label {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .current-day .visual-toggle-button {
+    width: 112px;
+    min-width: 112px;
+    height: 100%;
+    border: 0;
+    border-left: 1px solid var(--line);
+    border-radius: 0;
+    font-size: 13px;
+  }
+}
+</style></head>
+<body>
+<main>
+<section aria-label="Gevonden optredens" class="schedule-shell"><div class="export-bar">
+<fieldset aria-label="Reminder" class="reminder-fieldset">
+<span aria-hidden="true" class="reminder-title">Reminder</span>
+<div class="reminder-options">
+<label class="radio-label"><input name="reminder" type="radio" value="none"/>None</label>
+<label class="radio-label"><input checked="" name="reminder" type="radio" value="before"/>Before start</label>
+</div>
+<div class="custom-reminder" id="customReminderTop">
+<input aria-label="Reminder amount" id="reminderValue" max="10080" min="1" type="number" value="10"/>
+<select aria-label="Reminder unit" id="reminderUnit">
+<option value="minutes">minutes</option>
+<option value="hours">hours</option>
+</select>
+</div>
+</fieldset>
+<div class="download-stack">
+<div class="download-row" id="downloadRowTop">
+<button aria-expanded="false" aria-label="Calendar information" class="calendar-info-button" id="calendarInfoTop" type="button">i</button>
+<button class="download-button" id="downloadButton" type="button">Download calendar <span aria-hidden="true">↓</span></button>
+</div>
+<div id="desktopSearchSlot"></div>
+</div>
+</div><div class="selection-tools">
+<div class="filter-group sort-group">
+<select aria-label="Sort by" id="sortSelect">
+<option value="area">Area</option>
+<option value="dj">Artist</option>
+<option selected="" value="time">Time</option>
+</select>
+<button aria-pressed="false" class="visual-toggle-button" disabled id="visualToggle" type="button">My timetable</button>
+</div>
+<div class="filter-group day-filters">
+<label class="toggle"><input checked="" id="fridayToggle" type="checkbox"/> Friday</label>
+<label class="toggle"><input checked="" id="saturdayToggle" type="checkbox"/> Saturday</label>
+</div>
+<div class="filter-group clear-group">
+<button id="selectAll" type="button">Select all</button>
+<button id="clearAll" type="button">Delete all</button>
+</div>
+<div class="filter-group search-group" id="searchGroup">
+<button aria-label="Clear artist search" class="clear-search" id="clearSearch" type="button">×</button>
+<label class="search-box">
+<span aria-hidden="true" class="search-icon">🔍</span>
+<input autocomplete="off" id="artistSearch" placeholder="Artist" type="search"/>
+</label>
+</div>
+<div class="current-day" id="currentDay"><span class="current-day-label" id="currentDayLabel">FRIDAY</span></div>
+</div>
+<section aria-label="My timetable" class="visual-schedule" hidden id="visualTimetable">
+<div id="visualTimetableContent"></div>
+</section>
+<div class="sets" id="setsContainer">
+<label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">12:00 – 15:00</span>
+<span class="set-name">Annebel B2B Carré</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">12:00 – 14:30</span>
+<span class="set-name">Harrison Heat</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">12:00 – 14:30</span>
+<span class="set-name">Lola Edo</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">12:00 – 14:00</span>
+<span class="set-name">Colombian Drone Mafia &amp; Debit (Hybrid)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">12:00 – 15:00</span>
+<span class="set-name">Varuna Agosti</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">13:00 – 14:15</span>
+<span class="set-name">The Necks (Live) Set 1</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">14:00 – 15:00</span>
+<span class="set-name">Nadah El Shazly FT. 3Phaz (Live)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">14:30 – 16:00</span>
+<span class="set-name">Michelle Manetti</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">14:30 – 16:30</span>
+<span class="set-name">Mi-El B2B Soft Break</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">14:45 – 16:00</span>
+<span class="set-name">The Necks (Live) Set 2</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">15:00 – 16:00</span>
+<span class="set-name">Ojoo (Hybrid)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">15:00 – 16:00</span>
+<span class="set-name">Kelman Duran (Live)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">15:00 – 16:00</span>
+<span class="set-name">Eversines (Live)</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:00 – 16:45</span>
+<span class="set-name">Dials (Live)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:00 – 17:30</span>
+<span class="set-name">Colored Craig</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:00 – 17:00</span>
+<span class="set-name">Cola Ren &amp; K-LONE (Live)</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:00 – 19:00</span>
+<span class="set-name">Wheel Of Fortune (CCL X Marylou X Nono Gigsta X Rroxymore)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:00 – 18:00</span>
+<span class="set-name">Isabel Soto B2B Jin Synth</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:30 – 18:30</span>
+<span class="set-name">Leonce B2B Oceanic</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">16:45 – 19:00</span>
+<span class="set-name">Shannen SP</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">17:00 – 19:00</span>
+<span class="set-name">Cosmo B2B Marie K</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">17:30 – 19:00</span>
+<span class="set-name">Dimitri</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">18:00 – 19:00</span>
+<span class="set-name">Doltz. (Live)</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">18:30 – 19:15</span>
+<span class="set-name">Namasenda (Live)</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">19:00 – 20:00</span>
+<span class="set-name">James K (Live)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">19:00 – 21:00</span>
+<span class="set-name">DJ Nobu</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">19:00 – 21:00</span>
+<span class="set-name">Kevin Saunderson B2B Surusinghe</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">19:00 – 20:30</span>
+<span class="set-name">Weird Baile</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">19:00 – 21:00</span>
+<span class="set-name">Darwin B2B Mama Snake</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">19:15 – 21:30</span>
+<span class="set-name">Angel D'Lite B2B Kim Ann Foxman</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">20:00 – 22:00</span>
+<span class="set-name">DJ Firmeza X DJ Lycox X DJ Narciso</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">20:30 – 21:30</span>
+<span class="set-name">Hyperverbena (Hybrid)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">21:00 – 23:00</span>
+<span class="set-name">Eris Drew B2B Objekt</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">21:00 – 22:30</span>
+<span class="set-name">Datapunk (Hybrid) Presented By Anthony Rother</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">21:00 – 22:30</span>
+<span class="set-name">The Secret Live Act</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">21:30 – 22:30</span>
+<span class="set-name">Shygirl (Live)</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">21:30 – 23:00</span>
+<span class="set-name">DJRUM X Riko Dan</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">22:00 – 23:00</span>
+<span class="set-name">Commodo X Hans Arsen (Live)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">22:30 – 00:30</span>
+<span class="set-name">Carl H B2B Naone</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">22:30 – 00:30</span>
+<span class="set-name">The Secret Guest</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">22:30 – 00:30</span>
+<span class="set-name">Talismann B2B Wallis</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">RE:NI B2B Simo Cell</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">Introspekt B2B Jeremy Sylvester</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">Low Jack B2B R3IGN Drops</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">12:00 – 16:30</span>
+<span class="set-name">Batu</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">12:00 – 14:00</span>
+<span class="set-name">Rumi De Baires</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">12:00 – 15:30</span>
+<span class="set-name">Carmen Villain B2B Hitam</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">12:00 – 16:30</span>
+<span class="set-name">Bennet B2B Beste Hira</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">12:00 – 14:30</span>
+<span class="set-name">DJ Lomalinda B2B Phillip Jondo</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">12:00 – 14:30</span>
+<span class="set-name">Ræza</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">14:00 – 16:00</span>
+<span class="set-name">Garage Girls</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">14:30 – 16:30</span>
+<span class="set-name">MMM</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">14:30 – 16:30</span>
+<span class="set-name">Mari Sakurai</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">15:30 – 16:30</span>
+<span class="set-name">Ben Vince (Live)</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">16:00 – 18:00</span>
+<span class="set-name">Ābnamā B2B Faited</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">16:30 – 17:30</span>
+<span class="set-name">Devon Rexi Meets John T. Gast (Live)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">16:30 – 19:00</span>
+<span class="set-name">Full Circle</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">16:30 – 17:30</span>
+<span class="set-name">Deetron (Live)</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">16:30 – 17:30</span>
+<span class="set-name">DJ Haram &amp; Sha Ray (Live)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">16:30 – 18:30</span>
+<span class="set-name">Delano Legito B2B Shinedoe</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">17:30 – 19:30</span>
+<span class="set-name">Ema B2B Verity</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">17:30 – 20:00</span>
+<span class="set-name">Donato Dozzy B2B Job Jobse</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">17:30 – 18:30</span>
+<span class="set-name">DJ Ramon Sucesso</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">18:00 – 20:00</span>
+<span class="set-name">Bashkka B2B Jerome Sydenham</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">18:30 – 19:30</span>
+<span class="set-name">French II (Live)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">18:30 – 20:30</span>
+<span class="set-name">Rod B2B Rolando</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">19:00 – 20:00</span>
+<span class="set-name">Adam Marshall &amp; Ricardo Tobar Present Labrador (Live)</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">19:30 – 20:30</span>
+<span class="set-name">Metrist (Live)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">19:30 – 21:00</span>
+<span class="set-name">DNGDNGDNG &amp; Phran: Sonido Underground (Hybrid)</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">20:00 – 21:00</span>
+<span class="set-name">Fred P (Live)</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">20:00 – 22:00</span>
+<span class="set-name">André Galluzzi B2B Lea Occhi</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">20:00 – 21:00</span>
+<span class="set-name">Nene H (Live)</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">20:30 – 22:00</span>
+<span class="set-name">GOTH-TRAD</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">20:30 – 21:30</span>
+<span class="set-name">Altinbas (Live)</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">21:00 – 23:00</span>
+<span class="set-name">Octo Octa B2B Virginia</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">21:00 – 22:30</span>
+<span class="set-name">DJ G2G B2B SPFDJ</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">21:00 – 23:00</span>
+<span class="set-name">Bitter Babe B2B Carista</span>
+<span class="set-area">THE PIT</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">21:30 – 22:30</span>
+<span class="set-name">Kangding Ray X Lumus Present Snelweg (Live)</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">22:00 – 23:00</span>
+<span class="set-name">Polygonia, Simon Popp (Live)</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">22:00 – 23:00</span>
+<span class="set-name">OK EG (Live)</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">22:30 – 00:30</span>
+<span class="set-name">Lena Willikens B2B ¥ØU$UK€ ¥UK1MAT$U</span>
+<span class="set-area">STROBE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">22:30 – 00:30</span>
+<span class="set-name">Amoral B2B Jasmín</span>
+<span class="set-area">TUNNEL</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">Fadi Mohem B2B Richard Akingbehin</span>
+<span class="set-area">AURA</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">Sandrien</span>
+<span class="set-area">FOREST RAVE</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">Adiel B2B Garçon</span>
+<span class="set-area">MOON</span>
+</label><label class="set-row">
+<input type="checkbox"/>
+<span aria-hidden="true" class="custom-check">✓</span>
+<span class="day-pill day-only" data-day="Zaterdag">Zaterdag 5 sep</span>
+<span class="set-time">23:00 – 00:30</span>
+<span class="set-name">DJ Playero</span>
+<span class="set-area">THE PIT</span>
+</label>
+</div>
+<div class="export-bar export-bar-bottom">
+<fieldset aria-label="Reminder" class="reminder-fieldset">
+<span aria-hidden="true" class="reminder-title">Reminder</span>
+<div class="reminder-options">
+<label class="radio-label"><input name="reminderBottom" type="radio" value="none"/>None</label>
+<label class="radio-label"><input checked="" name="reminderBottom" type="radio" value="before"/>Before start</label>
+</div>
+<div class="custom-reminder" id="customReminderBottom">
+<input aria-label="Reminder amount at the bottom" id="reminderValueBottom" max="10080" min="1" type="number" value="10"/>
+<select aria-label="Reminder unit at the bottom" id="reminderUnitBottom">
+<option value="minutes">minutes</option>
+<option value="hours">hours</option>
+</select>
+</div>
+</fieldset>
+<div class="download-row" id="downloadRowBottom">
+<button aria-expanded="false" aria-label="Calendar information" class="calendar-info-button" id="calendarInfoBottom" type="button">i</button>
+<button class="download-button" id="downloadButtonBottom" type="button">Download calendar <span aria-hidden="true">↓</span></button>
+</div>
+</div>
+<div aria-hidden="true" class="calendar-info-message" id="calendarInfoMessage" role="status"><span>Select artists to view and/or download your timetable.</span><span>After download open .ics file with your calendar app.</span></div>
+</section>
+</main>
+<script>
+(() => {
+const C=document.getElementById("setsContainer"),R=[...C.querySelectorAll(".set-row")],
+
+D=document.getElementById("downloadButton"),SS=document.getElementById("sortSelect"),
+F=document.getElementById("fridayToggle"),S=document.getElementById("saturdayToggle"),
+RV=document.getElementById("reminderValue"),RU=document.getElementById("reminderUnit"),
+DB=document.getElementById("downloadButtonBottom"),RVB=document.getElementById("reminderValueBottom"),
+RUB=document.getElementById("reminderUnitBottom"),Q=document.getElementById("artistSearch"),
+SA=document.getElementById("selectAll"),CA=document.getElementById("clearAll");
+
+const searchGroup=document.getElementById("searchGroup");
+const desktopSearchSlot=document.getElementById("desktopSearchSlot");
+const selectionTools=document.querySelector(".selection-tools");
+const sortGroup=document.querySelector(".sort-group");
+const currentDay=document.getElementById("currentDay");
+const currentDayLabel=document.getElementById("currentDayLabel");
+const mobileLayout=window.matchMedia("(max-width: 700px)");
+const portraitSelection=window.matchMedia("(max-width: 700px) and (orientation: portrait)");
+const mobileLandscape=window.matchMedia("(orientation: landscape) and (max-height: 600px), (orientation: landscape) and (pointer: coarse)");
+const infoTop=document.getElementById("calendarInfoTop"),infoBottom=document.getElementById("calendarInfoBottom");
+const customReminderTop=document.getElementById("customReminderTop"),customReminderBottom=document.getElementById("customReminderBottom");
+const downloadRowTop=document.getElementById("downloadRowTop"),downloadRowBottom=document.getElementById("downloadRowBottom");
+const infoMessage=document.getElementById("calendarInfoMessage");
+const visualToggle=document.getElementById("visualToggle");
+const visualTimetable=document.getElementById("visualTimetable");
+const visualTimetableContent=document.getElementById("visualTimetableContent");
+let visualMode=false;
+function placeSearch(){
+ (portraitSelection.matches?selectionTools:desktopSearchSlot).appendChild(searchGroup);
+}
+function placeInfoButtons(){
+ if(portraitSelection.matches){
+   customReminderTop.appendChild(infoTop);
+   customReminderBottom.appendChild(infoBottom);
+ }else{
+   downloadRowTop.appendChild(infoTop);
+   downloadRowBottom.appendChild(infoBottom);
+ }
+}
+function placeVisualToggle(){
+ (portraitSelection.matches?currentDay:sortGroup).appendChild(visualToggle);
+ currentDay.hidden=visualMode&&!portraitSelection.matches;
+}
+mobileLayout.addEventListener("change",placeSearch);
+portraitSelection.addEventListener("change",placeSearch);
+portraitSelection.addEventListener("change",placeInfoButtons);
+portraitSelection.addEventListener("change",placeVisualToggle);
+mobileLandscape.addEventListener("change",placeInfoButtons);
+placeSearch();
+placeInfoButtons();
+placeVisualToggle();
+
+let infoTimer;
+function placeInfoMessage(button){
+ infoMessage.classList.remove("desktop-position","portrait-position","landscape-position");
+ if(portraitSelection.matches){
+   const buttonBox=button.getBoundingClientRect();
+   document.body.appendChild(infoMessage);
+   infoMessage.style.setProperty("--info-top",`${buttonBox.bottom+8}px`);
+   infoMessage.classList.add("portrait-position");
+ }else if(mobileLandscape.matches){
+   document.body.appendChild(infoMessage);
+   if(button===infoTop){
+     const buttonBox=button.getBoundingClientRect();
+     const searchBox=searchGroup.getBoundingClientRect();
+     infoMessage.style.setProperty("--info-landscape-left",`${buttonBox.right+10}px`);
+     infoMessage.style.setProperty("--info-landscape-top",`${searchBox.top+(searchBox.height/2)}px`);
+     infoMessage.classList.add("landscape-position");
+   }
+ }else if(mobileLayout.matches){
+   document.body.appendChild(infoMessage);
+ }else{
+   button.parentElement.appendChild(infoMessage);
+   infoMessage.classList.add("desktop-position");
+ }
+}
+function showCalendarInfo(event){
+ clearTimeout(infoTimer);
+ placeInfoMessage(event.currentTarget);
+ infoMessage.classList.add("show");
+ infoMessage.setAttribute("aria-hidden","false");
+ infoTop.setAttribute("aria-expanded","true");
+ infoBottom.setAttribute("aria-expanded","true");
+ infoTimer=setTimeout(()=>{
+   infoMessage.classList.remove("show");
+   infoMessage.setAttribute("aria-hidden","true");
+   infoTop.setAttribute("aria-expanded","false");
+   infoBottom.setAttribute("aria-expanded","false");
+ },7000);
+}
+infoTop.onclick=showCalendarInfo;
+infoBottom.onclick=showCalendarInfo;
+
+const day=r=>((r.querySelector(".day-pill")?.textContent||"").trim().toLowerCase().startsWith("vrijdag")?"f":"s");
+const time=r=>{let m=(r.querySelector(".set-time")?.textContent||"").match(/(\d{1,2}):(\d{2})/);return m? +m[1]*60 + +m[2]:0};
+const area=r=>(r.querySelector(".set-area")?.textContent||"").trim().toLowerCase();
+const dj=r=>(r.querySelector(".set-name")?.textContent||"").trim().toLowerCase();
+const chosen=()=>R.filter(r=>r.querySelector('input[type=checkbox]').checked);
+
+function update(){
+ let n=chosen().length;
+ if(!n&&visualMode)setVisualMode(false);
+ visualToggle.disabled=n===0;
+ visualToggle.setAttribute("aria-disabled",n===0?"true":"false");
+ D.innerHTML=`Download calendar <span aria-hidden="true">↓</span>`;
+ D.disabled = n === 0;
+ D.setAttribute("aria-disabled", n === 0 ? "true" : "false");
+ DB.innerHTML=`Download calendar <span aria-hidden="true">↓</span>`;
+ DB.disabled = n === 0;
+ DB.setAttribute("aria-disabled", n === 0 ? "true" : "false");
+ SA.textContent=portraitSelection.matches&&n>0?"Delete all":"Select all";
+ CA.textContent="Delete all";
+ R.forEach(r=>{let c=r.querySelector('input[type=checkbox]'),m=r.querySelector(".custom-check");
+ r.classList.toggle("set-unchecked",!c.checked); if(m)m.textContent=c.checked?"✓":""});
+ if(visualMode)renderVisualTimetable();
+}
+function filterSort(){
+ const fridaySelected=F.checked;
+ const saturdaySelected=S.checked;
+ const noDaySelected=!fridaySelected&&!saturdaySelected;
+ let query=String(Q.value||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+ let visible=R.filter(r=>{
+   let matchesDay=noDaySelected||(day(r)==="f"&&fridaySelected)||(day(r)==="s"&&saturdaySelected);
+   let artist=dj(r).normalize("NFKD").replace(/[\u0300-\u036f]/g,"");
+   return matchesDay&&(!query||artist.includes(query));
+ });
+ let sort=SS.value;
+ visible.sort((a,b)=>{
+   if(sort==="area") return area(a).localeCompare(area(b),"nl");
+   if(sort==="dj") return dj(a).localeCompare(dj(b),"nl");
+   return day(a)!==day(b)?(day(a)==="f"?-1:1):time(a)-time(b);
+ });
+ [...visible,...R.filter(r=>!visible.includes(r))].forEach(r=>{
+   C.appendChild(r);
+   r.style.display=visible.includes(r)?"":"none";
+ });
+ F.checked=fridaySelected;
+ S.checked=saturdaySelected;
+ update();
+}
+R.forEach(r=>{
+ let c=r.querySelector('input[type=checkbox]'); c.checked=false;
+ c.addEventListener("change",update);
+});
+SA.onclick=()=>{
+ if(portraitSelection.matches&&chosen().length){
+   R.forEach(r=>r.querySelector('input[type=checkbox]').checked=false);
+ }else{
+   R.forEach(r=>{if(r.style.display!=="none")r.querySelector('input[type=checkbox]').checked=true});
+ }
+ update();
+};
+CA.onclick=()=>{R.forEach(r=>r.querySelector('input[type=checkbox]').checked=false);update()};
+portraitSelection.addEventListener("change",()=>{placeInfoButtons();update()});
+SS.addEventListener("change",()=>{
+ if(SS.value==="dj"&&F.checked&&S.checked){
+   F.checked=false;
+   S.checked=false;
+ }
+ filterSort();
+});
+[F,S].forEach(x=>x.addEventListener("change",filterSort));
+Q.addEventListener("input",()=>{filterSort();requestAnimationFrame(updateCurrentDay)});
+document.getElementById("clearSearch").onclick=()=>{
+ Q.value="";
+ filterSort();
+ requestAnimationFrame(updateCurrentDay);
+ Q.focus();
+};
+
+const topReminder=[...document.querySelectorAll('input[name="reminder"]')];
+const bottomReminder=[...document.querySelectorAll('input[name="reminderBottom"]')];
+function syncReminder(from,to){
+ const selected=from.find(r=>r.checked)?.value;
+ to.forEach(r=>r.checked=r.value===selected);
+}
+topReminder.forEach(r=>r.addEventListener("change",()=>syncReminder(topReminder,bottomReminder)));
+bottomReminder.forEach(r=>r.addEventListener("change",()=>syncReminder(bottomReminder,topReminder)));
+RV.addEventListener("input",()=>RVB.value=RV.value);
+RVB.addEventListener("input",()=>RV.value=RVB.value);
+RU.addEventListener("change",()=>RUB.value=RU.value);
+RUB.addEventListener("change",()=>RU.value=RUB.value);
+
+function esc(s){return String(s).replace(/\\/g,"\\\\").replace(/([,;])/g,"\\$1").replace(/\r?\n/g,"\\n")}
+function fold(x){let o="",c="",b=new TextEncoder();for(let ch of x){if(b.encode(c+ch).length>75){o+=c+"\r\n ";c=ch}else c+=ch}return o+c}
+function stamp(d,h,m){return d.replaceAll("-","")+"T"+String(h).padStart(2,"0")+String(m).padStart(2,"0")+"00"}
+function start(day,t){let d=day==="f"?"2026-09-04":"2026-09-05",[h,m]=t.split(":").map(Number);return{d,h,m}}
+function end(d,h,m){let x=new Date(`${d}T${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:00`);if(h<6)x.setDate(x.getDate()+1);return{d:x.toISOString().slice(0,10),h:x.getHours(),m:x.getMinutes()}}
+function mins(){if(document.querySelector('input[name=reminder]:checked')?.value==="none")return null;let v=Math.max(1,+RV.value||10);return RU.value==="hours"?v*60:v}
+
+D.onclick=()=>{
+ let ch=chosen();
+ if(!ch.length)return;
+
+ const pad=n=>String(n).padStart(2,"0");
+ const now=new Date();
+ const dtstamp=now.getUTCFullYear()+pad(now.getUTCMonth()+1)+pad(now.getUTCDate())+
+   "T"+pad(now.getUTCHours())+pad(now.getUTCMinutes())+pad(now.getUTCSeconds())+"Z";
+ const rm=mins();
+
+ const uidPart=s=>{
+   return String(s).normalize("NFKD")
+     .replace(/[\u0300-\u036f]/g,"")
+     .toLowerCase()
+     .replace(/[^a-z0-9]+/g,"-")
+     .replace(/^-+|-+$/g,"")
+     .slice(0,80);
+ };
+
+ // Use the same ICS structure that is known to import correctly on Android.
+ // Event times are explicitly Europe/Amsterdam local times.
+ const L=[
+   "BEGIN:VCALENDAR",
+   "VERSION:2.0",
+   "PRODID:-//Draaiboek//Draaimolen Festival 2026//NL",
+   "CALSCALE:GREGORIAN"
+ ];
+
+ ch.forEach((r,i)=>{
+   const da=day(r);
+   const times=r.querySelector(".set-time").textContent.trim().split("–").map(x=>x.trim());
+   const startTime=times[0];
+   const endTime=times[1]||times[0];
+   const name=r.querySelector(".set-name").textContent.trim();
+   const ar=r.querySelector(".set-area").textContent.trim();
+
+   const date=da==="f"?"20260904":"20260905";
+   const [sh,sm]=startTime.split(":").map(Number);
+   const [eh,em]=endTime.split(":").map(Number);
+
+   let endDate=date;
+   if((eh*60+em)<(sh*60+sm)){
+     const d=new Date(Date.UTC(Number(date.slice(0,4)),Number(date.slice(4,6))-1,Number(date.slice(6,8))+1));
+     endDate=d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate());
+   }
+
+   L.push("BEGIN:VEVENT");
+   L.push(`UID:draaimolen-${date}-${pad(sh)}${pad(sm)}-${pad(eh)}${pad(em)}-${uidPart(name)}-${uidPart(ar)}@draaiboek.local`);
+   L.push(`DTSTAMP:${dtstamp}`);
+   L.push(`DTSTART;TZID=Europe/Amsterdam:${date}T${pad(sh)}${pad(sm)}00`);
+   L.push(`DTEND;TZID=Europe/Amsterdam:${endDate}T${pad(eh)}${pad(em)}00`);
+   L.push(`SUMMARY:${esc(name+" - "+ar)}`);
+   L.push(`DESCRIPTION:${esc(name+" - "+ar)}`);
+   L.push(`LOCATION:${esc(ar)}`);
+
+   if(rm!==null){
+     L.push("BEGIN:VALARM");
+     L.push(`TRIGGER:-PT${rm}M`);
+     L.push("ACTION:DISPLAY");
+     L.push(`DESCRIPTION:${esc(name)} starts in ${rm} minutes`);
+     L.push("END:VALARM");
+   }
+
+   L.push("END:VEVENT");
+ });
+
+ L.push("END:VCALENDAR");
+
+ // No METHOD:PUBLISH, no VTIMEZONE and no BOM: this matches the
+ // simple ICS structure known to import correctly on Android.
+ const ics=L.join("\r\n")+"\r\n";
+ const blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+ a.href=url;
+ a.download="Draaiboek.ics";
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+DB.onclick=()=>D.click();
+
+function visualMinute(value){
+ const parts=String(value).trim().split(":").map(Number);
+ let total=(parts[0]||0)*60+(parts[1]||0);
+ if(total<360)total+=1440;
+ return total-720;
+}
+function visualSetData(row){
+ const values=row.querySelector(".set-time").textContent.trim().split("–").map(x=>x.trim());
+ const start=visualMinute(values[0]);
+ let end=visualMinute(values[1]||values[0]);
+ if(end<=start)end+=1440;
+ return{
+   row,
+   start,
+   end,
+   timeText:`${values[0]} – ${values[1]||values[0]}`,
+   name:row.querySelector(".set-name").textContent.trim(),
+   area:row.querySelector(".set-area").textContent.trim(),
+   overlap:false,
+   lane:0
+ };
+}
+let expandedVisualBlock=null;
+let expandedVisualTimer;
+function collapseExpandedVisualBlock(){
+ clearTimeout(expandedVisualTimer);
+ if(!expandedVisualBlock)return;
+ expandedVisualBlock.classList.remove("is-expanded");
+ expandedVisualBlock.style.left=expandedVisualBlock.dataset.originalLeft||"";
+ expandedVisualBlock.style.width=expandedVisualBlock.dataset.originalWidth||"";
+ delete expandedVisualBlock.dataset.originalLeft;
+ delete expandedVisualBlock.dataset.originalWidth;
+ expandedVisualBlock=null;
+}
+function expandVisualBlock(block,nameElement){
+ if(nameElement.scrollWidth<=nameElement.clientWidth+1)return;
+ collapseExpandedVisualBlock();
+ const chart=block.parentElement;
+ const chartWidth=chart.clientWidth;
+ const desiredWidth=Math.min(380,Math.max(240,nameElement.scrollWidth+28));
+ const expandedWidth=Math.min(desiredWidth,chartWidth-16);
+ const expandedLeft=Math.max(8,Math.min(block.offsetLeft,chartWidth-expandedWidth-8));
+ block.dataset.originalLeft=block.style.left;
+ block.dataset.originalWidth=block.style.width;
+ block.style.left=`${expandedLeft}px`;
+ block.style.width=`${expandedWidth}px`;
+ block.classList.add("is-expanded");
+ expandedVisualBlock=block;
+ expandedVisualTimer=setTimeout(collapseExpandedVisualBlock,5000);
+}
+function renderVisualDay(dayCode,label,rows){
+ const daySection=document.createElement("section");
+ daySection.className="visual-day";
+ const heading=document.createElement("h2");
+ heading.className="visual-day-title";
+ heading.textContent=label;
+ daySection.appendChild(heading);
+
+ const scroller=document.createElement("div");
+ scroller.className="visual-scroll";
+ const chart=document.createElement("div");
+ chart.className="visual-chart";
+ const range=750;
+ const items=rows.map(visualSetData).sort((a,b)=>a.start-b.start||a.end-b.end);
+
+ for(let i=0;i<items.length;i++){
+   for(let j=i+1;j<items.length;j++){
+     if(items[j].start>=items[i].end)break;
+     if(items[i].start<items[j].end&&items[j].start<items[i].end){
+       items[i].overlap=true;
+       items[j].overlap=true;
+     }
+   }
+ }
+
+ const laneEnds=[];
+ items.forEach(item=>{
+   let lane=laneEnds.findIndex(end=>end<=item.start);
+   if(lane<0)lane=laneEnds.length;
+   item.lane=lane;
+   laneEnds[lane]=item.end;
+ });
+
+ const ticks=[
+   [0,"12:00"],[120,"14:00"],[240,"16:00"],[360,"18:00"],
+   [480,"20:00"],[600,"22:00"],[720,"00:00"],[750,"00:30"]
+ ];
+ ticks.forEach(([minute,labelText])=>{
+   const tick=document.createElement("div");
+   tick.className="visual-tick";
+   tick.style.left=`${(minute/range)*100}%`;
+   const tickLabel=document.createElement("span");
+   tickLabel.className="visual-tick-label";
+   tickLabel.textContent=labelText;
+   if(minute===720){
+     tickLabel.style.transform="translateX(-100%)";
+   }
+   if(minute===range){
+     tickLabel.style.top="20px";
+     tickLabel.style.transform="translateX(-100%)";
+   }
+   tick.appendChild(tickLabel);
+   chart.appendChild(tick);
+ });
+
+ items.forEach(item=>{
+   const block=document.createElement("div");
+   block.className=`visual-set-block${item.overlap?" has-overlap":""}`;
+   block.style.left=`${Math.max(0,item.start/range*100)}%`;
+   block.style.width=`${Math.max(.8,(item.end-item.start)/range*100)}%`;
+   block.style.top=`${36+(item.lane*72)}px`;
+   block.title=`${item.name} — ${item.timeText} — ${item.area}`;
+   block.setAttribute("aria-label",block.title);
+   block.setAttribute("role","button");
+   block.tabIndex=0;
+   block.addEventListener("click",()=>expandVisualBlock(block,name));
+   block.addEventListener("keydown",event=>{
+     if(event.key==="Enter"||event.key===" "){
+       event.preventDefault();
+       expandVisualBlock(block,name);
+     }
+   });
+   const name=document.createElement("div");
+   name.className="visual-set-name";
+   name.textContent=item.name;
+   const meta=document.createElement("div");
+   meta.className="visual-set-meta";
+   const timeLine=document.createElement("div");
+   timeLine.className="visual-set-time";
+   timeLine.textContent=item.timeText;
+   const areaLine=document.createElement("div");
+   areaLine.className="visual-set-area";
+   areaLine.textContent=item.area;
+   meta.append(timeLine,areaLine);
+   block.append(name,meta);
+   chart.appendChild(block);
+ });
+
+ chart.style.height=`${Math.max(108,44+(Math.max(1,laneEnds.length)*72))}px`;
+ scroller.appendChild(chart);
+ daySection.appendChild(scroller);
+ return daySection;
+}
+function renderVisualTimetable(){
+ collapseExpandedVisualBlock();
+ visualTimetableContent.replaceChildren();
+ const selected=chosen();
+ const useBoth=!F.checked&&!S.checked;
+ const fridayRows=selected.filter(r=>day(r)==="f"&&(useBoth||F.checked));
+ const saturdayRows=selected.filter(r=>day(r)==="s"&&(useBoth||S.checked));
+ if(!fridayRows.length&&!saturdayRows.length){
+   const empty=document.createElement("div");
+   empty.className="visual-empty";
+   empty.textContent="Select artists to view and/or download your timetable.";
+   visualTimetableContent.appendChild(empty);
+   return;
+ }
+ if(fridayRows.length)visualTimetableContent.appendChild(renderVisualDay("f","Friday",fridayRows));
+ if(saturdayRows.length)visualTimetableContent.appendChild(renderVisualDay("s","Saturday",saturdayRows));
+}
+function setVisualMode(enabled){
+ visualMode=enabled;
+ C.hidden=enabled;
+ currentDay.hidden=enabled&&!portraitSelection.matches;
+ visualTimetable.hidden=!enabled;
+ visualToggle.textContent=enabled?"Back to list":"My timetable";
+ visualToggle.setAttribute("aria-pressed",enabled?"true":"false");
+ if(enabled)renderVisualTimetable();
+ else requestAnimationFrame(updateCurrentDay);
+}
+visualToggle.addEventListener("click",()=>setVisualMode(!visualMode));
+function updateCurrentDay(){
+ const visible=R.filter(r=>r.style.display!=="none");
+ if(!visible.length){currentDayLabel.textContent="";return}
+ const top=currentDay.getBoundingClientRect().bottom;
+ let best=visible[0],bestDistance=Infinity;
+ visible.forEach(r=>{
+   const rect=r.getBoundingClientRect();
+   const distance=Math.abs(rect.top-top);
+   if(rect.bottom>=top-10&&distance<bestDistance){best=r;bestDistance=distance}
+ });
+ currentDayLabel.textContent=day(best)==="f"?"FRIDAY":"SATURDAY";
+}
+window.addEventListener("scroll",updateCurrentDay,{passive:true});
+[SS,F,S].forEach(x=>x.addEventListener("change",()=>requestAnimationFrame(updateCurrentDay)));
+filterSort();
+updateCurrentDay();
+})();
+</script></body>
+</html>
