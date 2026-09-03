@@ -1011,11 +1011,16 @@ footer p {
   position: relative !important;
   top: auto !important;
 }
+.schedule-shell > .export-bar:not(.export-bar-bottom) {
+  border-bottom: 0 !important;
+}
 .selection-tools {
   position: sticky !important;
   top: 0 !important;
   z-index: 100;
   background: #fff;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
 }
 .download-button {
   box-shadow: none !important;
@@ -1069,6 +1074,103 @@ footer p {
   position: relative;
   display: block;
 }
+.artist-suggestions {
+  position: absolute;
+  z-index: 400;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(23,23,20,.16);
+}
+.export-bar.suggestions-open {
+  z-index: 180 !important;
+  overflow: visible !important;
+}
+.artist-suggestions[hidden] {
+  display: none !important;
+}
+.artist-suggestion {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: var(--ink) !important;
+  padding: 7px 10px !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+.artist-suggestion:last-child {
+  border-bottom: 0 !important;
+}
+.artist-suggestion:hover,
+.artist-suggestion:focus-within {
+  background: #f1f0eb !important;
+  outline: 0;
+}
+.artist-suggestion-check {
+  position: relative;
+  flex: 0 0 48px;
+  display: grid !important;
+  place-items: center;
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  height: 44px !important;
+  margin: -5px -8px -5px 0 !important;
+  box-sizing: border-box;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  cursor: pointer;
+}
+.artist-suggestion-check::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border: 1px solid var(--ink);
+  background: transparent;
+}
+.artist-suggestion-check:hover::before,
+.artist-suggestion-check:focus-visible::before {
+  background: var(--acid);
+  outline: 2px solid rgba(23,23,20,.18);
+  outline-offset: 2px;
+}
+.artist-suggestion-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  padding: 4px 0 !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  cursor: pointer;
+}
 .search-icon {
   position: absolute;
   left: 10px;
@@ -1099,6 +1201,50 @@ footer p {
   gap: 12px;
   width: 240px;
   min-width: 240px;
+}
+.desktop-info-slot:empty {
+  display: none;
+}
+@media (min-width: 701px) {
+  .export-bar.desktop-toolbar {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr) 34px max-content 240px;
+    align-items: end;
+    column-gap: 8px;
+  }
+  .export-bar.desktop-toolbar .search-group,
+  .export-bar.desktop-toolbar .search-box,
+  .export-bar.desktop-toolbar #artistSearch {
+    width: 100%;
+    min-width: 0;
+  }
+  .export-bar.desktop-toolbar .desktop-info-slot {
+    display: block;
+    grid-column: 3;
+    position: relative;
+    align-self: end;
+    padding-bottom: 3px;
+  }
+  .export-bar.desktop-toolbar > .search-group {
+    grid-column: 1;
+  }
+  .export-bar.desktop-toolbar > .reminder-fieldset {
+    grid-column: 4;
+    width: max-content;
+    min-width: 0;
+  }
+  .export-bar.desktop-toolbar > .download-stack {
+    grid-column: 5;
+  }
+  .export-bar.desktop-toolbar .download-stack,
+  .export-bar.desktop-toolbar .download-row,
+  .export-bar.desktop-toolbar .download-button {
+    width: 240px;
+    min-width: 240px;
+  }
+  .export-bar.desktop-toolbar #desktopSearchSlot {
+    display: none;
+  }
 }
 .download-stack .download-button,
 .download-stack .search-group,
@@ -1623,6 +1769,130 @@ footer p {
   height: 40px;
   box-sizing: border-box;
 }
+#sortSelect {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-align-last: center;
+}
+#sortSelect option {
+  font-weight: 700;
+  text-align: left;
+}
+.custom-reminder input,
+.custom-reminder select {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-align-last: center;
+}
+.day-filters .toggle {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+.day-filters .toggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: #1688f2;
+}
+#artistSearch {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 32px;
+  padding-right: 32px;
+  text-align: center;
+}
+.set-row .set-area {
+  color: #111 !important;
+  font-weight: 700;
+  width: max-content;
+  padding: 3px 7px;
+  border-radius: 3px;
+  line-height: 1.2;
+}
+.set-row.set-unchecked .set-area {
+  color: #171714 !important;
+}
+.visual-focus-switch {
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--ink);
+  padding: 7px 9px;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+.selection-tools .visual-toggle-button,
+.selection-tools .visual-focus-switch {
+  border: 1px solid #aaa !important;
+  border-radius: 5px !important;
+  background: #fff !important;
+  color: var(--ink) !important;
+  padding: 7px 9px !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.selection-tools #selectAll,
+.selection-tools #clearAll,
+.selection-tools #sortSelect,
+.selection-tools .visual-toggle-button,
+.selection-tools .visual-focus-switch {
+  width: 112px;
+  min-width: 112px;
+  max-width: 112px;
+  height: 40px !important;
+  box-sizing: border-box;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+}
+.selection-tools #selectAll,
+.selection-tools #clearAll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #aaa !important;
+  border-radius: 5px !important;
+  background: #fff !important;
+  color: var(--ink) !important;
+  padding: 7px 9px !important;
+  text-decoration: none !important;
+}
+.day-action-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  margin-left: 7px;
+  box-sizing: border-box;
+  border: 1px solid #1688f2;
+  border-radius: 2px;
+  background: #1688f2;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+}
+.selection-tools #selectAll:disabled,
+.selection-tools #clearAll:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+.visual-focus-switch[hidden],
+#sortSelect[hidden],
+#visualFocusSelect[hidden] {
+  display: none !important;
+}
 .calendar-info-message span {
   display: block;
 }
@@ -1631,8 +1901,23 @@ footer p {
 }
 .visual-schedule[hidden],
 .sets[hidden],
-.current-day[hidden] {
+.current-day[hidden],
+.export-bar-bottom[hidden],
+.visual-focus-group[hidden] {
   display: none !important;
+}
+.visual-focus-group select,
+.visual-focus-group .visual-focus-switch {
+  width: 164px;
+  height: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  text-align-last: center;
+}
+.selection-tools .sort-group .visual-focus-group,
+.selection-tools .sort-group .visual-focus-switch {
+  width: 112px;
+  min-width: 112px;
 }
 .visual-schedule {
   padding: 6px 0 24px;
@@ -1648,6 +1933,11 @@ footer p {
 }
 .visual-day-title {
   margin: 0 0 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
   font-size: 17px;
   font-weight: 900;
   letter-spacing: .04em;
@@ -1665,6 +1955,40 @@ footer p {
   border: 1px solid var(--line);
   background: #fbfaf7;
 }
+.visual-chart::before {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  top: var(--sticky-time-offset, 0px);
+  left: 0;
+  right: 0;
+  height: 40px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(251,250,247,.98);
+  pointer-events: none;
+}
+.visual-timeline {
+  position: absolute;
+  inset: 0;
+}
+.visual-chart.area-mode .visual-timeline {
+  left: 122px;
+}
+.visual-area-label {
+  position: absolute;
+  left: 0;
+  width: 122px;
+  height: 64px;
+  border-right: 1px solid var(--line);
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.15;
+  z-index: 35;
+}
 .visual-tick {
   position: absolute;
   top: 0;
@@ -1674,44 +1998,167 @@ footer p {
 }
 .visual-tick-label {
   position: absolute;
-  top: 7px;
+  z-index: 30;
+  top: calc(var(--sticky-time-offset, 0px) + var(--tick-label-top, 7px));
   left: 5px;
-  color: #67645d;
+  color: #111;
   font-family: "Courier New", monospace;
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 900;
   white-space: nowrap;
+}
+.visual-now-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 25;
+  border-left: 2px solid #f08a00;
+  pointer-events: none;
+}
+.visual-now-label {
+  position: absolute;
+  z-index: 30;
+  top: calc(var(--sticky-time-offset, 0px) + 25px);
+  left: 5px;
+  color: #f08a00;
+  background: rgba(251,250,247,.92);
+  padding: 1px 4px;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.fixed-visual-timebar {
+  position: fixed;
+  z-index: 99;
+  display: none;
+  height: 41px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--line);
+  background: #fbfaf7;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.fixed-visual-timebar.show {
+  display: block;
+}
+.fixed-visual-timebar.dragging {
+  cursor: grabbing;
+}
+.fixed-visual-timebar-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 41px;
+  will-change: transform;
+}
+.fixed-visual-time-label {
+  position: absolute;
+  top: 7px;
+  color: #111;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.fixed-visual-now-line {
+  position: absolute;
+  top: 0;
+  height: 41px;
+  border-left: 2px solid #f08a00;
+}
+.fixed-visual-now-label {
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  color: #f08a00;
+  background: rgba(251,250,247,.96);
+  padding: 0 3px;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.visual-chart.floating-time-source::before,
+.visual-chart.floating-time-source .visual-tick-label,
+.visual-chart.floating-time-source .visual-now-label {
+  visibility: hidden;
+}
+.visual-chart.sticky-time-head .visual-tick-label,
+.visual-chart.sticky-time-head .visual-now-label {
+  z-index: 30;
+  background: rgba(251,250,247,.96);
+  padding: 1px 4px;
+}
+.visual-chart.sticky-time-head::before {
+  top: calc(var(--sticky-time-offset, 0px) - 10px);
+  height: 45px;
 }
 .visual-set-block {
   position: absolute;
+  min-width: 132px;
   height: 64px;
   overflow: hidden;
   border: 1px solid #8c8a82;
   background: var(--acid);
   color: var(--ink);
-  padding: 7px 9px;
+  padding: 7px 28px 7px 9px;
   box-sizing: border-box;
   line-height: 1.15;
   cursor: pointer;
 }
-.visual-set-block.has-overlap {
-  border-color: #b05b00;
-  background: #ffd28a;
+.visual-remove-set {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #b42318;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  color: #b42318;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  font: 700 16px/1 Arial, sans-serif;
+  cursor: pointer;
+}
+.visual-remove-set svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .visual-set-name {
   overflow: hidden;
+  max-width: calc(100% - var(--label-shift, 0px));
   font-size: 12px;
   font-weight: 900;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transform: translateX(var(--label-shift, 0px));
 }
 .visual-set-meta {
   overflow: hidden;
+  max-width: calc(100% - var(--label-shift, 0px));
   margin-top: 5px;
   display: flex;
   gap: 4px;
   font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transform: translateX(var(--label-shift, 0px));
+}
+.visual-set-time {
+  white-space: nowrap;
+}
+.visual-set-area {
+  display: block;
 }
 .visual-set-area::before {
   content: "· ";
@@ -1725,13 +2172,17 @@ footer p {
 }
 .visual-set-block.is-expanded .visual-set-name {
   overflow: visible;
+  max-width: none;
   text-overflow: clip;
   white-space: normal;
+  transform: none;
 }
 .visual-set-block.is-expanded .visual-set-meta {
   display: block;
   overflow: visible;
+  max-width: none;
   white-space: normal;
+  transform: none;
 }
 .visual-set-block.is-expanded .visual-set-area {
   margin-top: 4px;
@@ -1739,11 +2190,24 @@ footer p {
 .visual-set-block.is-expanded .visual-set-area::before {
   content: none;
 }
+.visual-set-block.search-match {
+  z-index: 24;
+  outline: 4px solid #f08a00;
+  outline-offset: -4px;
+  filter: brightness(1.08) saturate(1.08);
+}
 @media (min-width: 1000px) {
   .schedule-shell {
     width: 100%;
     max-width: 1500px;
     box-sizing: border-box;
+  }
+}
+@media (min-width: 701px) {
+  .selection-tools .visual-focus-group {
+    grid-column: 4;
+    grid-row: 2;
+    justify-self: start;
   }
 }
 @media (max-width: 700px),
@@ -1753,6 +2217,7 @@ footer p {
     display: block;
   }
   .visual-set-area {
+    display: block;
     margin-top: 2px;
   }
   .visual-set-area::before {
@@ -1761,29 +2226,175 @@ footer p {
 }
 @media (max-width: 700px) {
   .visual-view-controls { display: none; }
+  .selection-tools .visual-focus-group {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: 100%;
+  }
+  .selection-tools .visual-focus-group select,
+  .selection-tools .visual-focus-group .visual-focus-switch {
+    width: 100%;
+  }
+  .selection-tools .current-day {
+    grid-row: 3;
+  }
+  .selection-tools.visual-mode .current-day {
+    grid-row: 4;
+  }
 }
 @media (max-width: 700px) and (orientation: portrait) {
+  .selection-tools #clearAll {
+    display: none !important;
+  }
+  .schedule-shell > .export-bar:not(.export-bar-bottom) {
+    padding-bottom: 8px;
+  }
+  .selection-tools {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    box-sizing: border-box;
+  }
+  .selection-tools .day-filters {
+    padding-left: 7px;
+  }
   .selection-tools .current-day {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 112px;
+    column-gap: 8px;
     align-items: stretch;
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
+    min-height: 40px;
+    height: 40px;
+    border: 0;
+    background: transparent;
   }
   .current-day-label {
-    min-height: 54px;
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: stretch;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  .current-day-label[hidden] {
+    display: none !important;
   }
   .current-day .visual-toggle-button {
     width: 112px;
     min-width: 112px;
-    height: 100%;
+    height: 40px !important;
     border: 0;
     border-left: 1px solid var(--line);
     border-radius: 0;
-    font-size: 13px;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+  .selection-tools.visual-mode .current-day {
+    grid-row: 3;
+  }
+  .current-day .visual-focus-group {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  .current-day .visual-focus-group select,
+  .current-day .visual-focus-group .visual-focus-switch {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+  }
+  .current-day .visual-toggle-button {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+  .selection-tools.visual-mode .current-day .visual-toggle-button {
+    grid-column: 2 !important;
+    width: 112px;
+    height: 40px;
+  }
+  .selection-tools.visual-mode .current-day {
+    min-height: 40px;
+    border: 0;
+    background: transparent;
+  }
+  .selection-tools.visual-mode {
+    border-bottom: 1px solid var(--line) !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .selection-tools.visual-mode + .visual-schedule {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .visual-schedule:not([hidden]) #visualTimetableContent > .visual-day:first-child {
+    margin-top: 0;
+  }
+  .visual-schedule:not([hidden]) #visualTimetableContent > .visual-day:first-child .visual-chart {
+    border-top: 0;
+  }
+  .visual-schedule:not([hidden]) #visualTimetableContent > .visual-day:first-child .visual-scroll {
+    margin-top: 0 !important;
+  }
+  .visual-day {
+    margin-top: 10px;
+  }
+  .visual-day-title {
+    display: none;
+  }
+  .visual-chart.area-mode .visual-timeline {
+    left: 0;
+  }
+  .visual-chart.area-mode .visual-area-label {
+    display: none;
+  }
+}
+/* Mobile: place sorting/focus above Select/Delete in the right-hand control slot. */
+@media (max-width: 700px) {
+  .selection-tools .sort-group {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    margin-left: 0;
+  }
+  .selection-tools .clear-group {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+}
+@media (min-width: 701px) and (orientation: landscape) and (max-height: 600px),
+       (min-width: 701px) and (orientation: landscape) and (pointer: coarse) {
+  .selection-tools .sort-group {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .selection-tools .clear-group {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: start;
+  }
+}
+@media (max-width: 700px),
+       (orientation: landscape) and (max-height: 600px),
+       (orientation: landscape) and (pointer: coarse) {
+  .visual-set-block {
+    border-color: transparent;
+  }
+}
+@media (min-width: 701px) and (hover: hover) and (pointer: fine) {
+  .visual-area-label {
+    border: 1px solid var(--line);
   }
 }
 </style></head>
@@ -1818,22 +2429,30 @@ footer p {
 <option value="dj">Artist</option>
 <option selected="" value="time">Time</option>
 </select>
-<button aria-pressed="false" class="visual-toggle-button" disabled id="visualToggle" type="button">My timetable</button>
+<button aria-pressed="false" class="visual-toggle-button" disabled id="visualToggle" type="button">Timetable</button>
+</div>
+<div class="filter-group visual-focus-group" hidden id="visualFocusGroup">
+<select aria-label="Timetable focus" hidden id="visualFocusSelect">
+<option value="upcoming">Now</option>
+<option value="all">All</option>
+</select>
+<button aria-label="Focus on now; switch to all" class="visual-focus-switch" id="visualFocusButton" type="button">Now</button>
 </div>
 <div class="filter-group day-filters">
 <label class="toggle"><input checked="" id="fridayToggle" type="checkbox"/> Friday</label>
 <label class="toggle"><input checked="" id="saturdayToggle" type="checkbox"/> Saturday</label>
 </div>
 <div class="filter-group clear-group">
-<button id="selectAll" type="button">Select all</button>
-<button id="clearAll" type="button">Delete all</button>
+<button id="selectAll" type="button">Select <span aria-hidden="true" class="day-action-icon">✓</span></button>
+<button id="clearAll" type="button">Delete <span aria-hidden="true" class="day-action-icon">✓</span></button>
 </div>
 <div class="filter-group search-group" id="searchGroup">
 <button aria-label="Clear artist search" class="clear-search" id="clearSearch" type="button">×</button>
-<label class="search-box">
+<div class="search-box">
 <span aria-hidden="true" class="search-icon">🔍</span>
-<input autocomplete="off" id="artistSearch" placeholder="Artist" type="search"/>
-</label>
+<input aria-label="Search artist" autocomplete="off" id="artistSearch" placeholder="Artist" type="search"/>
+<div class="artist-suggestions" hidden id="artistSuggestions" role="listbox"></div>
+</div>
 </div>
 <div class="current-day" id="currentDay"><span class="current-day-label" id="currentDayLabel">FRIDAY</span></div>
 </div>
@@ -2084,7 +2703,7 @@ footer p {
 <span aria-hidden="true" class="custom-check">✓</span>
 <span class="day-pill day-only" data-day="Vrijdag">Vrijdag 4 sep</span>
 <span class="set-time">21:00 – 22:30</span>
-<span class="set-name">The Secret Live Act</span>
+<span class="set-name">Karenn</span>
 <span class="set-area">TUNNEL</span>
 </label><label class="set-row">
 <input type="checkbox"/>
@@ -2480,11 +3099,26 @@ RUB=document.getElementById("reminderUnitBottom"),Q=document.getElementById("art
 SA=document.getElementById("selectAll"),CA=document.getElementById("clearAll");
 
 const searchGroup=document.getElementById("searchGroup");
+const searchBox=searchGroup.querySelector(".search-box");
+const artistSuggestions=document.getElementById("artistSuggestions");
 const desktopSearchSlot=document.getElementById("desktopSearchSlot");
+const topExportBar=document.querySelector(".export-bar:not(.export-bar-bottom)");
+const topReminderFieldset=topExportBar.querySelector(".reminder-fieldset");
+const desktopInfoSlot=document.createElement("div");
+desktopInfoSlot.className="desktop-info-slot";
+topExportBar.insertBefore(desktopInfoSlot,topReminderFieldset);
 const selectionTools=document.querySelector(".selection-tools");
 const sortGroup=document.querySelector(".sort-group");
 const currentDay=document.getElementById("currentDay");
 const currentDayLabel=document.getElementById("currentDayLabel");
+const fixedVisualTimebar=document.createElement("div");
+fixedVisualTimebar.className="fixed-visual-timebar";
+fixedVisualTimebar.setAttribute("aria-hidden","true");
+const fixedVisualTimebarInner=document.createElement("div");
+fixedVisualTimebarInner.className="fixed-visual-timebar-inner";
+fixedVisualTimebar.appendChild(fixedVisualTimebarInner);
+document.body.appendChild(fixedVisualTimebar);
+let fixedTimebarScroller=null;
 const mobileLayout=window.matchMedia("(max-width: 700px)");
 const portraitSelection=window.matchMedia("(max-width: 700px) and (orientation: portrait)");
 const mobileLandscape=window.matchMedia("(orientation: landscape) and (max-height: 600px), (orientation: landscape) and (pointer: coarse)");
@@ -2495,12 +3129,23 @@ const infoMessage=document.getElementById("calendarInfoMessage");
 const visualToggle=document.getElementById("visualToggle");
 const visualTimetable=document.getElementById("visualTimetable");
 const visualTimetableContent=document.getElementById("visualTimetableContent");
-let visualMode=false;
+const visualFocusGroup=document.getElementById("visualFocusGroup");
+const visualFocusSelect=document.getElementById("visualFocusSelect");
+const visualFocusButton=document.getElementById("visualFocusButton");
+const artistSortOption=SS.querySelector('option[value="dj"]');
+const bottomExport=document.querySelector(".export-bar-bottom");
+let visualMode=false,listSortValue=SS.value;
+const desktopControls=()=>!mobileLayout.matches&&!mobileLandscape.matches;
 function placeSearch(){
- (portraitSelection.matches?selectionTools:desktopSearchSlot).appendChild(searchGroup);
+ if(desktopControls())topExportBar.insertBefore(searchGroup,desktopInfoSlot);
+ else (portraitSelection.matches?selectionTools:desktopSearchSlot).appendChild(searchGroup);
 }
 function placeInfoButtons(){
- if(portraitSelection.matches){
+ topExportBar.classList.toggle("desktop-toolbar",desktopControls());
+ if(desktopControls()){
+   desktopInfoSlot.appendChild(infoTop);
+   downloadRowBottom.appendChild(infoBottom);
+ }else if(portraitSelection.matches){
    customReminderTop.appendChild(infoTop);
    customReminderBottom.appendChild(infoBottom);
  }else{
@@ -2512,16 +3157,31 @@ function placeVisualToggle(){
  (portraitSelection.matches?currentDay:sortGroup).appendChild(visualToggle);
  currentDay.hidden=visualMode&&!portraitSelection.matches;
 }
-mobileLayout.addEventListener("change",placeSearch);
-portraitSelection.addEventListener("change",placeSearch);
-portraitSelection.addEventListener("change",placeInfoButtons);
+function placeVisualFocus(){
+ if(visualMode){
+   if(visualToggle.parentElement===sortGroup)sortGroup.insertBefore(visualFocusGroup,visualToggle);
+   else sortGroup.appendChild(visualFocusGroup);
+   currentDayLabel.hidden=false;
+ }else{
+   selectionTools.appendChild(visualFocusGroup);
+   currentDayLabel.hidden=false;
+ }
+}
+function placeTopControls(){
+ placeSearch();
+ placeInfoButtons();
+}
+mobileLayout.addEventListener("change",placeTopControls);
+portraitSelection.addEventListener("change",placeTopControls);
 portraitSelection.addEventListener("change",placeVisualToggle);
-mobileLandscape.addEventListener("change",placeInfoButtons);
-placeSearch();
-placeInfoButtons();
+portraitSelection.addEventListener("change",placeVisualFocus);
+mobileLandscape.addEventListener("change",placeTopControls);
+placeTopControls();
 placeVisualToggle();
+placeVisualFocus();
 
 let infoTimer;
+const defaultInfoHtml=infoMessage.innerHTML;
 function placeInfoMessage(button){
  infoMessage.classList.remove("desktop-position","portrait-position","landscape-position");
  if(portraitSelection.matches){
@@ -2547,6 +3207,7 @@ function placeInfoMessage(button){
 }
 function showCalendarInfo(event){
  clearTimeout(infoTimer);
+ infoMessage.innerHTML=defaultInfoHtml;
  placeInfoMessage(event.currentTarget);
  infoMessage.classList.add("show");
  infoMessage.setAttribute("aria-hidden","false");
@@ -2559,6 +3220,19 @@ function showCalendarInfo(event){
    infoBottom.setAttribute("aria-expanded","false");
  },7000);
 }
+function showDownloadCount(button,count){
+ clearTimeout(infoTimer);
+ const line=document.createElement("span");
+ line.textContent=`${count} ${count===1?"artist":"artists"} included in Draaiboek.ics.`;
+ infoMessage.replaceChildren(line);
+ placeInfoMessage(button);
+ infoMessage.classList.add("show");
+ infoMessage.setAttribute("aria-hidden","false");
+ infoTimer=setTimeout(()=>{
+   infoMessage.classList.remove("show");
+   infoMessage.setAttribute("aria-hidden","true");
+ },7000);
+}
 infoTop.onclick=showCalendarInfo;
 infoBottom.onclick=showCalendarInfo;
 
@@ -2567,9 +3241,116 @@ const time=r=>{let m=(r.querySelector(".set-time")?.textContent||"").match(/(\d{
 const area=r=>(r.querySelector(".set-area")?.textContent||"").trim().toLowerCase();
 const dj=r=>(r.querySelector(".set-name")?.textContent||"").trim().toLowerCase();
 const chosen=()=>R.filter(r=>r.querySelector('input[type=checkbox]').checked);
+const normalizeArtist=value=>String(value||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+const stateStorageKey="draaiboek-settings-v1";
+let restoringState=false;
+let artistHighlightTimer;
+function rowStateKey(row){
+ return [day(row),row.querySelector(".set-time")?.textContent.trim(),row.querySelector(".set-name")?.textContent.trim(),row.querySelector(".set-area")?.textContent.trim()].join("|");
+}
+function readSavedState(){
+ try{return JSON.parse(localStorage.getItem(stateStorageKey)||"null")}catch{return null}
+}
+function persistState(){
+ if(restoringState)return;
+ const state={
+   selected:chosen().map(rowStateKey),
+   friday:F.checked,
+   saturday:S.checked,
+   listSort:listSortValue,
+   reminderMode:document.querySelector('input[name="reminder"]:checked')?.value||"before",
+   reminderValue:RV.value,
+   reminderUnit:RU.value,
+   visualMode,
+   visualFocus:visualFocusSelect.value
+ };
+ try{localStorage.setItem(stateStorageKey,JSON.stringify(state))}catch{}
+}
+function applySavedState(){
+ const state=readSavedState();
+ if(!state)return false;
+ if(Array.isArray(state.selected)){
+   const selectedKeys=new Set(state.selected);
+   R.forEach(row=>row.querySelector('input[type="checkbox"]').checked=selectedKeys.has(rowStateKey(row)));
+ }
+ if(typeof state.friday==="boolean")F.checked=state.friday;
+ if(typeof state.saturday==="boolean")S.checked=state.saturday;
+ if(["time","area","dj"].includes(state.listSort))listSortValue=state.listSort;
+ SS.value=listSortValue;
+ const reminderMode=state.reminderMode==="none"?"none":"before";
+ document.querySelectorAll('input[name="reminder"],input[name="reminderBottom"]').forEach(radio=>radio.checked=radio.value===reminderMode);
+ if(state.reminderValue!==undefined){RV.value=state.reminderValue;RVB.value=state.reminderValue}
+ if(["minutes","hours"].includes(state.reminderUnit)){RU.value=state.reminderUnit;RUB.value=state.reminderUnit}
+ if(["upcoming","all"].includes(state.visualFocus))visualFocusSelect.value=state.visualFocus;
+ visualFocusButton.textContent=visualFocusSelect.value==="all"?"All":"Now";
+ visualFocusButton.setAttribute("aria-label",visualFocusSelect.value==="all"?"Focus on all; switch to now":"Focus on now; switch to all");
+ return Boolean(state.visualMode);
+}
+
+function setArtistSuggestionsVisible(visible){
+ artistSuggestions.hidden=!visible;
+ topExportBar.classList.toggle("suggestions-open",visible&&topExportBar.contains(searchGroup));
+}
+
+function renderArtistSuggestions(){
+ const query=normalizeArtist(Q.value);
+ artistSuggestions.replaceChildren();
+ if(!visualMode||!query){setArtistSuggestionsVisible(false);return}
+ const names=[...new Set(R.map(row=>row.querySelector(".set-name")?.textContent.trim()).filter(Boolean))]
+   .filter(name=>normalizeArtist(name).includes(query))
+   .sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"}))
+   .slice(0,10);
+ names.forEach(name=>{
+   const matchingRows=R.filter(row=>normalizeArtist(row.querySelector(".set-name")?.textContent)===normalizeArtist(name));
+   const selected=matchingRows.some(row=>row.querySelector('input[type="checkbox"]').checked);
+   const option=document.createElement("div");
+   option.className="artist-suggestion";
+   option.setAttribute("role","option");
+   option.setAttribute("aria-selected",selected?"true":"false");
+   const nameButton=document.createElement("button");
+   nameButton.type="button";
+   nameButton.className="artist-suggestion-name";
+   nameButton.textContent=name;
+   nameButton.addEventListener("click",()=>chooseArtistSuggestion(name));
+   option.appendChild(nameButton);
+   if(!selected){
+     const check=document.createElement("button");
+     check.type="button";
+     check.className="artist-suggestion-check";
+     check.setAttribute("aria-label",`Add ${name} to timetable`);
+     check.addEventListener("click",()=>chooseArtistSuggestion(name));
+     option.appendChild(check);
+   }
+   artistSuggestions.appendChild(option);
+ });
+ setArtistSuggestionsVisible(Boolean(names.length));
+}
+
+function chooseArtistSuggestion(name){
+ Q.value=name;
+ F.checked=true;
+ S.checked=true;
+ R.filter(row=>normalizeArtist(row.querySelector(".set-name")?.textContent)===normalizeArtist(name))
+   .forEach(row=>row.querySelector('input[type="checkbox"]').checked=true);
+ setArtistSuggestionsVisible(false);
+ filterSort();
+ Q.value="";
+ if(visualMode){
+   requestAnimationFrame(()=>requestAnimationFrame(()=>focusArtistInTimetable(name)));
+ }
+}
+
+const matchesSelectedDay=row=>(F.checked&&day(row)==="f")||(S.checked&&day(row)==="s");
+const selectButtonHtml='Select <span class="day-action-icon" aria-hidden="true">✓</span>';
+const deleteButtonHtml='Delete <span class="day-action-icon" aria-hidden="true">✓</span>';
+function deleteForSelectedDays(){
+ R.filter(matchesSelectedDay).forEach(row=>row.querySelector('input[type="checkbox"]').checked=false);
+ update();
+}
 
 function update(){
  let n=chosen().length;
+ let deletableCount=chosen().filter(matchesSelectedDay).length;
  if(!n&&visualMode)setVisualMode(false);
  visualToggle.disabled=n===0;
  visualToggle.setAttribute("aria-disabled",n===0?"true":"false");
@@ -2579,11 +3360,21 @@ function update(){
  DB.innerHTML=`Download calendar <span aria-hidden="true">↓</span>`;
  DB.disabled = n === 0;
  DB.setAttribute("aria-disabled", n === 0 ? "true" : "false");
- SA.textContent=portraitSelection.matches&&n>0?"Delete all":"Select all";
- CA.textContent="Delete all";
+ if(portraitSelection.matches&&deletableCount>0){
+   SA.innerHTML=deleteButtonHtml;
+   SA.setAttribute("aria-label","Delete selected artists from the selected days");
+ }else{
+   SA.innerHTML=selectButtonHtml;
+   SA.setAttribute("aria-label","Select artists from the selected days");
+ }
+ SA.disabled=!F.checked&&!S.checked;
+ CA.innerHTML=deleteButtonHtml;
+ CA.setAttribute("aria-label","Delete selected artists from the selected days");
+ CA.disabled=deletableCount===0;
  R.forEach(r=>{let c=r.querySelector('input[type=checkbox]'),m=r.querySelector(".custom-check");
  r.classList.toggle("set-unchecked",!c.checked); if(m)m.textContent=c.checked?"✓":""});
  if(visualMode)renderVisualTimetable();
+ persistState();
 }
 function filterSort(){
  const fridaySelected=F.checked;
@@ -2610,30 +3401,54 @@ function filterSort(){
  update();
 }
 R.forEach(r=>{
- let c=r.querySelector('input[type=checkbox]'); c.checked=false;
+ let c=r.querySelector('input[type=checkbox]'); c.checked=true;
  c.addEventListener("change",update);
 });
 SA.onclick=()=>{
- if(portraitSelection.matches&&chosen().length){
-   R.forEach(r=>r.querySelector('input[type=checkbox]').checked=false);
+ if(portraitSelection.matches&&chosen().some(matchesSelectedDay)){
+   deleteForSelectedDays();
  }else{
-   R.forEach(r=>{if(r.style.display!=="none")r.querySelector('input[type=checkbox]').checked=true});
+   R.filter(matchesSelectedDay).forEach(r=>r.querySelector('input[type=checkbox]').checked=true);
+   update();
  }
- update();
 };
-CA.onclick=()=>{R.forEach(r=>r.querySelector('input[type=checkbox]').checked=false);update()};
+CA.onclick=deleteForSelectedDays;
 portraitSelection.addEventListener("change",()=>{placeInfoButtons();update()});
 SS.addEventListener("change",()=>{
+ if(!visualMode)listSortValue=SS.value;
  if(SS.value==="dj"&&F.checked&&S.checked){
    F.checked=false;
    S.checked=false;
  }
  filterSort();
+ requestAnimationFrame(()=>SS.blur());
 });
 [F,S].forEach(x=>x.addEventListener("change",filterSort));
-Q.addEventListener("input",()=>{filterSort();requestAnimationFrame(updateCurrentDay)});
+Q.addEventListener("input",()=>{
+ if(Q.value.trim()){
+   F.checked=true;
+   S.checked=true;
+   if(portraitSelection.matches){
+     requestAnimationFrame(()=>{
+       const fieldTop=searchGroup.getBoundingClientRect().top;
+       if(fieldTop>12)window.scrollBy({top:fieldTop-8,behavior:"smooth"});
+     });
+   }
+ }
+ renderArtistSuggestions();
+ filterSort();
+ requestAnimationFrame(updateCurrentDay);
+});
+Q.addEventListener("focus",renderArtistSuggestions);
+Q.addEventListener("keydown",event=>{
+ if(event.key==="Escape")setArtistSuggestionsVisible(false);
+});
+document.addEventListener("pointerdown",event=>{
+ if(!searchBox.contains(event.target))setArtistSuggestionsVisible(false);
+});
 document.getElementById("clearSearch").onclick=()=>{
  Q.value="";
+ setArtistSuggestionsVisible(false);
  filterSort();
  requestAnimationFrame(updateCurrentDay);
  Q.focus();
@@ -2645,12 +3460,12 @@ function syncReminder(from,to){
  const selected=from.find(r=>r.checked)?.value;
  to.forEach(r=>r.checked=r.value===selected);
 }
-topReminder.forEach(r=>r.addEventListener("change",()=>syncReminder(topReminder,bottomReminder)));
-bottomReminder.forEach(r=>r.addEventListener("change",()=>syncReminder(bottomReminder,topReminder)));
-RV.addEventListener("input",()=>RVB.value=RV.value);
-RVB.addEventListener("input",()=>RV.value=RVB.value);
-RU.addEventListener("change",()=>RUB.value=RU.value);
-RUB.addEventListener("change",()=>RU.value=RUB.value);
+topReminder.forEach(r=>r.addEventListener("change",()=>{syncReminder(topReminder,bottomReminder);persistState()}));
+bottomReminder.forEach(r=>r.addEventListener("change",()=>{syncReminder(bottomReminder,topReminder);persistState()}));
+RV.addEventListener("input",()=>{RVB.value=RV.value;persistState()});
+RVB.addEventListener("input",()=>{RV.value=RVB.value;persistState()});
+RU.addEventListener("change",()=>{RUB.value=RU.value;persistState()});
+RUB.addEventListener("change",()=>{RU.value=RUB.value;persistState()});
 
 function esc(s){return String(s).replace(/\\/g,"\\\\").replace(/([,;])/g,"\\$1").replace(/\r?\n/g,"\\n")}
 function fold(x){let o="",c="",b=new TextEncoder();for(let ch of x){if(b.encode(c+ch).length>75){o+=c+"\r\n ";c=ch}else c+=ch}return o+c}
@@ -2659,7 +3474,7 @@ function start(day,t){let d=day==="f"?"2026-09-04":"2026-09-05",[h,m]=t.split(":
 function end(d,h,m){let x=new Date(`${d}T${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:00`);if(h<6)x.setDate(x.getDate()+1);return{d:x.toISOString().slice(0,10),h:x.getHours(),m:x.getMinutes()}}
 function mins(){if(document.querySelector('input[name=reminder]:checked')?.value==="none")return null;let v=Math.max(1,+RV.value||10);return RU.value==="hours"?v*60:v}
 
-D.onclick=()=>{
+function downloadCalendar(messageButton){
  let ch=chosen();
  if(!ch.length)return;
 
@@ -2739,8 +3554,10 @@ D.onclick=()=>{
  a.click();
  a.remove();
  setTimeout(()=>URL.revokeObjectURL(url),1000);
-};
-DB.onclick=()=>D.click();
+ showDownloadCount(messageButton,ch.length);
+}
+D.onclick=()=>downloadCalendar(infoTop);
+DB.onclick=()=>downloadCalendar(infoBottom);
 
 function visualMinute(value){
  const parts=String(value).trim().split(":").map(Number);
@@ -2764,37 +3581,122 @@ function visualSetData(row){
    lane:0
  };
 }
+const visualAreaOrder=["STROBE","MOON","AURA","FOREST RAVE","THE PIT","TUNNEL"];
+const visualAreaLabels={
+ "STROBE":"Strobe","MOON":"Moon","AURA":"Aura",
+ "FOREST RAVE":"Forest Rave","THE PIT":"The Pit","TUNNEL":"Tunnel"
+};
+const visualAreaColors={
+ "AURA":{background:"#9B6DFF",text:"#fff"},
+ "FOREST RAVE":{background:"#3B8C5A",text:"#fff"},
+ "STROBE":{background:"#D8FF3E",text:"#171714"},
+ "THE PIT":{background:"#B83A3A",text:"#fff"},
+ "TUNNEL":{background:"#3F4856",text:"#fff"},
+ "MOON":{background:"#9EDCFF",text:"#171714"}
+};
+R.forEach(row=>{
+ const areaElement=row.querySelector(".set-area");
+ const stage=visualAreaColors[(areaElement?.textContent||"").trim().toUpperCase()];
+ if(!areaElement||!stage)return;
+ areaElement.style.backgroundColor=stage.background;
+ areaElement.style.setProperty("color",stage.text,"important");
+});
+function currentClockVisualMinute(){
+ const now=new Date();
+ let hour=now.getHours();
+ if(hour<6)hour+=24;
+ return Math.max(0,Math.min(750,(hour*60+now.getMinutes())-720));
+}
 let expandedVisualBlock=null;
 let expandedVisualTimer;
 function collapseExpandedVisualBlock(){
  clearTimeout(expandedVisualTimer);
  if(!expandedVisualBlock)return;
+ const scroller=expandedVisualBlock.closest(".visual-scroll");
  expandedVisualBlock.classList.remove("is-expanded");
  expandedVisualBlock.style.left=expandedVisualBlock.dataset.originalLeft||"";
  expandedVisualBlock.style.width=expandedVisualBlock.dataset.originalWidth||"";
+ expandedVisualBlock.style.setProperty("--label-shift",expandedVisualBlock.dataset.originalLabelShift||"0px");
  delete expandedVisualBlock.dataset.originalLeft;
  delete expandedVisualBlock.dataset.originalWidth;
+ delete expandedVisualBlock.dataset.originalLabelShift;
  expandedVisualBlock=null;
+ if(scroller)requestAnimationFrame(()=>updateVisualBlockLabels(scroller));
 }
 function expandVisualBlock(block,nameElement){
  if(nameElement.scrollWidth<=nameElement.clientWidth+1)return;
  collapseExpandedVisualBlock();
- const chart=block.parentElement;
- const chartWidth=chart.clientWidth;
+ const timeline=block.parentElement;
+ const scroller=block.closest(".visual-scroll");
+ const chartWidth=timeline.clientWidth;
  const desiredWidth=Math.min(380,Math.max(240,nameElement.scrollWidth+28));
  const expandedWidth=Math.min(desiredWidth,chartWidth-16);
- const expandedLeft=Math.max(8,Math.min(block.offsetLeft,chartWidth-expandedWidth-8));
+ const viewportStart=scroller?Math.max(0,scroller.scrollLeft-timeline.offsetLeft):0;
+ const expandedLeft=Math.max(8,Math.min(Math.max(block.offsetLeft,viewportStart+8),chartWidth-expandedWidth-8));
  block.dataset.originalLeft=block.style.left;
  block.dataset.originalWidth=block.style.width;
+ block.dataset.originalLabelShift=block.style.getPropertyValue("--label-shift")||"0px";
  block.style.left=`${expandedLeft}px`;
  block.style.width=`${expandedWidth}px`;
+ block.style.setProperty("--label-shift","0px");
  block.classList.add("is-expanded");
  expandedVisualBlock=block;
- expandedVisualTimer=setTimeout(collapseExpandedVisualBlock,5000);
+ expandedVisualTimer=setTimeout(collapseExpandedVisualBlock,2000);
+}
+function updateVisualBlockLabels(scroller){
+ const timeline=scroller.querySelector(".visual-timeline");
+ if(!timeline)return;
+ const chart=scroller.querySelector(".visual-chart");
+ chart?.querySelectorAll(".visual-area-label").forEach(label=>{
+   label.style.transform=desktopControls()?`translateX(${scroller.scrollLeft}px)`:"";
+ });
+ timeline.querySelectorAll(".visual-set-block").forEach(block=>{
+   if(block.classList.contains("is-expanded")){
+     block.style.setProperty("--label-shift","0px");
+     return;
+   }
+   const blockStart=timeline.offsetLeft+block.offsetLeft;
+   const desiredShift=Math.max(0,scroller.scrollLeft-blockStart+8);
+   const maximumShift=Math.max(0,block.offsetWidth-96);
+   block.style.setProperty("--label-shift",`${Math.min(desiredShift,maximumShift)}px`);
+ });
+ if(visualMode)updateStickyVisualTimeHeaders();
+}
+function focusArtistInTimetable(name,allowAllFallback=true){
+ const normalizedName=normalizeArtist(name);
+ const block=[...visualTimetableContent.querySelectorAll(".visual-set-block")]
+   .find(candidate=>normalizeArtist(candidate.dataset.artist)===normalizedName);
+ if(!block&&allowAllFallback&&visualFocusSelect.value==="upcoming"){
+   visualFocusSelect.value="all";
+   visualFocusButton.textContent="All";
+   visualFocusButton.setAttribute("aria-label","Focus on all; switch to now");
+   renderVisualTimetable();
+   requestAnimationFrame(()=>requestAnimationFrame(()=>focusArtistInTimetable(name,false)));
+   return;
+ }
+ if(!block)return;
+ block.classList.add("search-match");
+ const scroller=block.closest(".visual-scroll");
+ const timeline=block.closest(".visual-timeline");
+ if(scroller&&timeline){
+   const targetLeft=timeline.offsetLeft+block.offsetLeft-((scroller.clientWidth-block.offsetWidth)/2);
+   scroller.scrollTo({left:Math.max(0,targetLeft),behavior:"smooth"});
+ }
+ const blockBox=block.getBoundingClientRect();
+ const controlsBottom=Math.max(0,selectionTools.getBoundingClientRect().bottom);
+ const targetTop=window.scrollY+blockBox.top-controlsBottom-44;
+ window.scrollTo({top:Math.max(0,targetTop),behavior:"smooth"});
+ clearTimeout(artistHighlightTimer);
+ artistHighlightTimer=setTimeout(()=>{
+   visualTimetableContent.querySelectorAll(".search-match").forEach(match=>{
+     if(normalizeArtist(match.dataset.artist)===normalizedName)match.classList.remove("search-match");
+   });
+ },2700);
 }
 function renderVisualDay(dayCode,label,rows){
  const daySection=document.createElement("section");
  daySection.className="visual-day";
+ daySection.dataset.day=dayCode;
  const heading=document.createElement("h2");
  heading.className="visual-day-title";
  heading.textContent=label;
@@ -2804,8 +3706,29 @@ function renderVisualDay(dayCode,label,rows){
  scroller.className="visual-scroll";
  const chart=document.createElement("div");
  chart.className="visual-chart";
- const range=750;
- const items=rows.map(visualSetData).sort((a,b)=>a.start-b.start||a.end-b.end);
+ const timeline=document.createElement("div");
+ timeline.className="visual-timeline";
+ chart.appendChild(timeline);
+ const timelineStart=visualFocusSelect.value==="upcoming"?currentClockVisualMinute():0;
+ const timelineEnd=750;
+ const range=Math.max(1,timelineEnd-timelineStart);
+ timeline.dataset.start=String(timelineStart);
+ timeline.dataset.end=String(timelineEnd);
+  const items=rows.map(visualSetData).sort((a,b)=>a.start-b.start||a.end-b.end);
+  const areaMode=SS.value==="area";
+  chart.classList.toggle("area-mode",areaMode);
+  const visibleDurations=items
+    .filter(item=>item.end>timelineStart)
+    .map(item=>Math.max(5,item.end-Math.max(item.start,timelineStart)));
+  const shortestVisibleDuration=Math.min(...visibleDurations,range);
+  const minimumBlockWidth=132;
+  const areaLabelWidth=areaMode&&!portraitSelection.matches?122:0;
+  const requiredChartWidth=Math.ceil((range/shortestVisibleDuration)*minimumBlockWidth)+areaLabelWidth;
+  const visibleItems=items.filter(item=>item.end>timelineStart);
+  const latestVisibleStart=visibleItems.length?Math.max(...visibleItems.map(item=>item.start)):Infinity;
+  const compactFinalWindow=portraitSelection.matches&&visualFocusSelect.value==="upcoming"&&timelineStart>=latestVisibleStart;
+  chart.classList.toggle("compact-final-window",compactFinalWindow);
+  chart.style.minWidth=compactFinalWindow?"100%":`${Math.max(900,Math.min(6000,requiredChartWidth))}px`;
 
  for(let i=0;i<items.length;i++){
    for(let j=i+1;j<items.length;j++){
@@ -2818,47 +3741,98 @@ function renderVisualDay(dayCode,label,rows){
  }
 
  const laneEnds=[];
- items.forEach(item=>{
-   let lane=laneEnds.findIndex(end=>end<=item.start);
-   if(lane<0)lane=laneEnds.length;
-   item.lane=lane;
-   laneEnds[lane]=item.end;
- });
+ let activeAreas=[];
+ if(areaMode){
+   activeAreas=visualAreaOrder.filter(areaName=>items.some(item=>item.area.toUpperCase()===areaName));
+   items.forEach(item=>{
+     const areaIndex=activeAreas.indexOf(item.area.toUpperCase());
+     item.lane=areaIndex<0?activeAreas.length:areaIndex;
+   });
+   activeAreas.forEach((areaName,lane)=>{
+     const stage=visualAreaColors[areaName];
+     const areaLabel=document.createElement("div");
+     areaLabel.className="visual-area-label";
+     areaLabel.style.top=`${44+(lane*72)}px`;
+     areaLabel.style.backgroundColor=stage.background;
+     areaLabel.style.color=stage.text;
+     areaLabel.textContent=visualAreaLabels[areaName];
+     chart.appendChild(areaLabel);
+   });
+ }else{
+   items.forEach(item=>{
+     let lane=laneEnds.findIndex(end=>end<=item.start);
+     if(lane<0)lane=laneEnds.length;
+     item.lane=lane;
+     laneEnds[lane]=item.end;
+   });
+ }
 
- const ticks=[
-   [0,"12:00"],[120,"14:00"],[240,"16:00"],[360,"18:00"],
-   [480,"20:00"],[600,"22:00"],[720,"00:00"],[750,"00:30"]
- ];
- ticks.forEach(([minute,labelText])=>{
+ const formatVisualMinute=minute=>{
+   const total=(720+minute)%1440;
+   return `${String(Math.floor(total/60)).padStart(2,"0")}:${String(total%60).padStart(2,"0")}`;
+  };
+  const tickMinutes=[];
+  tickMinutes.push(timelineStart);
+  const tickStep=60;
+  for(let minute=Math.ceil(timelineStart/tickStep)*tickStep;minute<timelineEnd;minute+=tickStep){
+    const farEnoughFromNow=visualFocusSelect.value!=="upcoming"||minute-timelineStart>=45;
+    if(minute>timelineStart&&farEnoughFromNow)tickMinutes.push(minute);
+ }
+ if(tickMinutes[tickMinutes.length-1]!==timelineEnd)tickMinutes.push(timelineEnd);
+ const ticks=tickMinutes.filter(minute=>minute!==720).map(minute=>[minute,formatVisualMinute(minute)]);
+  ticks.forEach(([minute,labelText])=>{
    const tick=document.createElement("div");
    tick.className="visual-tick";
-   tick.style.left=`${(minute/range)*100}%`;
+   tick.style.left=`${((minute-timelineStart)/range)*100}%`;
    const tickLabel=document.createElement("span");
    tickLabel.className="visual-tick-label";
    tickLabel.textContent=labelText;
    if(minute===720){
      tickLabel.style.transform="translateX(-100%)";
-   }
-   if(minute===range){
-     tickLabel.style.top="20px";
-     tickLabel.style.transform="translateX(-100%)";
+    }
+    if(minute===timelineEnd){
+      tickLabel.style.transform="translateX(-100%)";
    }
    tick.appendChild(tickLabel);
-   chart.appendChild(tick);
- });
+    timeline.appendChild(tick);
+  });
 
- items.forEach(item=>{
+  if(visualFocusSelect.value==="all"){
+    const nowMinute=currentClockVisualMinute();
+    if(nowMinute>=timelineStart&&nowMinute<=timelineEnd){
+      const nowLine=document.createElement("div");
+      nowLine.className="visual-now-line";
+      nowLine.style.left=`${((nowMinute-timelineStart)/range)*100}%`;
+      const nowLabel=document.createElement("span");
+      nowLabel.className="visual-now-label";
+      nowLabel.textContent="Now";
+      nowLine.appendChild(nowLabel);
+      timeline.appendChild(nowLine);
+    }
+  }
+
+  items.forEach(item=>{
+   if(item.end<=timelineStart)return;
+   const visibleStart=Math.max(item.start,timelineStart);
    const block=document.createElement("div");
    block.className=`visual-set-block${item.overlap?" has-overlap":""}`;
-   block.style.left=`${Math.max(0,item.start/range*100)}%`;
-   block.style.width=`${Math.max(.8,(item.end-item.start)/range*100)}%`;
-   block.style.top=`${36+(item.lane*72)}px`;
+   block.dataset.artist=item.name;
+   const searchQuery=String(Q.value||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+   const searchableName=item.name.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+   block.classList.toggle("search-match",Boolean(searchQuery&&searchableName.includes(searchQuery)));
+   const stage=visualAreaColors[item.area.toUpperCase()]||{background:"#D8FF3E",text:"#171714"};
+   block.style.backgroundColor=stage.background;
+   block.style.color=stage.text;
+   block.style.left=`${Math.max(0,(visibleStart-timelineStart)/range*100)}%`;
+   block.style.width=`${Math.max(.8,(item.end-visibleStart)/range*100)}%`;
+   block.style.top=`${44+(item.lane*72)}px`;
    block.title=`${item.name} — ${item.timeText} — ${item.area}`;
    block.setAttribute("aria-label",block.title);
-   block.setAttribute("role","button");
+   block.setAttribute("role","group");
    block.tabIndex=0;
    block.addEventListener("click",()=>expandVisualBlock(block,name));
    block.addEventListener("keydown",event=>{
+     if(event.target!==block)return;
      if(event.key==="Enter"||event.key===" "){
        event.preventDefault();
        expandVisualBlock(block,name);
@@ -2867,53 +3841,219 @@ function renderVisualDay(dayCode,label,rows){
    const name=document.createElement("div");
    name.className="visual-set-name";
    name.textContent=item.name;
-   const meta=document.createElement("div");
-   meta.className="visual-set-meta";
-   const timeLine=document.createElement("div");
-   timeLine.className="visual-set-time";
-   timeLine.textContent=item.timeText;
+    const removeButton=document.createElement("button");
+    removeButton.className="visual-remove-set";
+    removeButton.type="button";
+    removeButton.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg>';
+   removeButton.setAttribute("aria-label",`Remove ${item.name} from my timetable`);
+   removeButton.addEventListener("click",event=>{
+     event.preventDefault();
+     event.stopPropagation();
+     item.row.querySelector('input[type="checkbox"]').checked=false;
+     update();
+   });
+    const meta=document.createElement("div");
+    meta.className="visual-set-meta";
+     const timeLine=document.createElement("div");
+     timeLine.className="visual-set-time";
+     timeLine.textContent=item.timeText;
    const areaLine=document.createElement("div");
    areaLine.className="visual-set-area";
    areaLine.textContent=item.area;
    meta.append(timeLine,areaLine);
-   block.append(name,meta);
-   chart.appendChild(block);
+   block.append(removeButton,name,meta);
+   timeline.appendChild(block);
  });
 
- chart.style.height=`${Math.max(108,44+(Math.max(1,laneEnds.length)*72))}px`;
- scroller.appendChild(chart);
- daySection.appendChild(scroller);
+ const laneCount=areaMode?Math.max(1,activeAreas.length):Math.max(1,laneEnds.length);
+  chart.style.height=`${Math.max(116,52+(laneCount*72))}px`;
+  scroller.appendChild(chart);
+  scroller.addEventListener("scroll",()=>updateVisualBlockLabels(scroller),{passive:true});
+  requestAnimationFrame(()=>updateVisualBlockLabels(scroller));
+  daySection.appendChild(scroller);
  return daySection;
 }
 function renderVisualTimetable(){
+ const scrollPositions=new Map();
+ visualTimetableContent.querySelectorAll(".visual-day").forEach(daySection=>{
+   const scroller=daySection.querySelector(".visual-scroll");
+   if(scroller)scrollPositions.set(daySection.dataset.day,scroller.scrollLeft);
+ });
  collapseExpandedVisualBlock();
  visualTimetableContent.replaceChildren();
- const selected=chosen();
+ let selected=chosen();
+ if(visualFocusSelect.value==="upcoming"){
+   const currentMinute=currentClockVisualMinute();
+   selected=selected.filter(row=>visualSetData(row).end>currentMinute);
+ }
  const useBoth=!F.checked&&!S.checked;
  const fridayRows=selected.filter(r=>day(r)==="f"&&(useBoth||F.checked));
  const saturdayRows=selected.filter(r=>day(r)==="s"&&(useBoth||S.checked));
  if(!fridayRows.length&&!saturdayRows.length){
    const empty=document.createElement("div");
    empty.className="visual-empty";
-   empty.textContent="Select artists to view and/or download your timetable.";
+   empty.textContent=chosen().length?"No selected artists are currently playing or still to come.":"Select artists to view and/or download your timetable.";
    visualTimetableContent.appendChild(empty);
    return;
  }
  if(fridayRows.length)visualTimetableContent.appendChild(renderVisualDay("f","Friday",fridayRows));
  if(saturdayRows.length)visualTimetableContent.appendChild(renderVisualDay("s","Saturday",saturdayRows));
+  requestAnimationFrame(()=>{
+   visualTimetableContent.querySelectorAll(".visual-day").forEach(daySection=>{
+     const scroller=daySection.querySelector(".visual-scroll");
+      const savedPosition=scrollPositions.get(daySection.dataset.day);
+      if(scroller&&savedPosition!==undefined){
+        scroller.scrollLeft=savedPosition;
+        updateVisualBlockLabels(scroller);
+      }
+    });
+    updateStickyVisualTimeHeaders();
+    updateCurrentDay();
+  });
 }
+function scrollVisualTimetablesToNow(){
+ if(visualFocusSelect.value!=="all")return;
+ visualTimetableContent.querySelectorAll(".visual-scroll").forEach(scroller=>{
+   const timeline=scroller.querySelector(".visual-timeline");
+   const nowLine=scroller.querySelector(".visual-now-line");
+   if(!timeline||!nowLine)return;
+   const target=timeline.offsetLeft+nowLine.offsetLeft-(scroller.clientWidth/2);
+   scroller.scrollTo({left:Math.max(0,target),behavior:"smooth"});
+  });
+}
+let visualHeaderFrame;
+function updateStickyVisualTimeHeaders(){
+ cancelAnimationFrame(visualHeaderFrame);
+ visualHeaderFrame=requestAnimationFrame(()=>{
+   const charts=[...visualTimetableContent.querySelectorAll(".visual-chart")];
+   charts.forEach(chart=>{
+     chart.classList.remove("sticky-time-head","floating-time-source");
+     chart.style.setProperty("--sticky-time-offset","0px");
+   });
+   const stickyTop=Math.max(0,selectionTools.getBoundingClientRect().bottom-1);
+   const activeChart=visualMode?charts.find(chart=>{
+     const bounds=chart.getBoundingClientRect();
+     return bounds.top<stickyTop&&bounds.bottom>stickyTop+41;
+   }):null;
+   if(!activeChart){
+     fixedTimebarScroller=null;
+     fixedVisualTimebar.classList.remove("show","dragging");
+     fixedVisualTimebar.setAttribute("aria-hidden","true");
+     return;
+   }
+   const scroller=activeChart.closest(".visual-scroll");
+   const timeline=activeChart.querySelector(".visual-timeline");
+   if(!scroller||!timeline)return;
+   fixedTimebarScroller=scroller;
+   activeChart.classList.add("floating-time-source");
+   const scrollerBox=scroller.getBoundingClientRect();
+   fixedVisualTimebar.style.top=`${stickyTop}px`;
+   fixedVisualTimebar.style.left=`${scrollerBox.left}px`;
+   fixedVisualTimebar.style.width=`${scrollerBox.width}px`;
+   fixedVisualTimebarInner.style.width=`${activeChart.offsetWidth}px`;
+   fixedVisualTimebarInner.style.transform=`translateX(${-scroller.scrollLeft}px)`;
+   fixedVisualTimebarInner.replaceChildren();
+   timeline.querySelectorAll(".visual-tick").forEach(tick=>{
+     const source=tick.querySelector(".visual-tick-label");
+     if(!source)return;
+     const label=document.createElement("span");
+     label.className="fixed-visual-time-label";
+     label.textContent=source.textContent;
+     label.style.left=`${timeline.offsetLeft+tick.offsetLeft+5}px`;
+     label.style.transform=source.style.transform||"";
+     fixedVisualTimebarInner.appendChild(label);
+   });
+   const sourceNow=timeline.querySelector(".visual-now-line");
+   if(sourceNow){
+     const nowLine=document.createElement("div");
+     nowLine.className="fixed-visual-now-line";
+     nowLine.style.left=`${timeline.offsetLeft+sourceNow.offsetLeft}px`;
+     const nowLabel=document.createElement("span");
+     nowLabel.className="fixed-visual-now-label";
+     nowLabel.textContent="Now";
+     nowLine.appendChild(nowLabel);
+     fixedVisualTimebarInner.appendChild(nowLine);
+   }
+   fixedVisualTimebar.classList.add("show");
+   fixedVisualTimebar.setAttribute("aria-hidden","false");
+ });
+}
+let fixedTimebarDrag=null;
+fixedVisualTimebar.addEventListener("pointerdown",event=>{
+ if(!fixedTimebarScroller||event.button!==0)return;
+ fixedTimebarDrag={x:event.clientX,scrollLeft:fixedTimebarScroller.scrollLeft};
+ fixedVisualTimebar.classList.add("dragging");
+ fixedVisualTimebar.setPointerCapture(event.pointerId);
+});
+fixedVisualTimebar.addEventListener("pointermove",event=>{
+ if(!fixedTimebarDrag||!fixedTimebarScroller)return;
+ fixedTimebarScroller.scrollLeft=fixedTimebarDrag.scrollLeft-(event.clientX-fixedTimebarDrag.x);
+});
+function stopFixedTimebarDrag(){
+ fixedTimebarDrag=null;
+ fixedVisualTimebar.classList.remove("dragging");
+}
+fixedVisualTimebar.addEventListener("pointerup",stopFixedTimebarDrag);
+fixedVisualTimebar.addEventListener("pointercancel",stopFixedTimebarDrag);
 function setVisualMode(enabled){
+ if(enabled){
+   listSortValue=SS.value;
+   SS.value="area";
+ }else{
+   SS.value=listSortValue;
+ }
  visualMode=enabled;
+ SS.hidden=enabled;
+ artistSortOption.hidden=enabled;
+ artistSortOption.disabled=enabled;
+ artistSortOption.style.display=enabled?"none":"";
+ visualFocusGroup.hidden=!enabled;
+ bottomExport.hidden=enabled;
+ selectionTools.classList.toggle("visual-mode",enabled);
+ placeVisualFocus();
  C.hidden=enabled;
  currentDay.hidden=enabled&&!portraitSelection.matches;
  visualTimetable.hidden=!enabled;
- visualToggle.textContent=enabled?"Back to list":"My timetable";
+ visualToggle.textContent=enabled?"List":"Timetable";
  visualToggle.setAttribute("aria-pressed",enabled?"true":"false");
- if(enabled)renderVisualTimetable();
- else requestAnimationFrame(updateCurrentDay);
+ if(enabled){
+   renderVisualTimetable();
+   if(document.activeElement===Q)renderArtistSuggestions();
+ }
+ else{
+   setArtistSuggestionsVisible(false);
+   filterSort();
+   requestAnimationFrame(updateCurrentDay);
+  }
+ requestAnimationFrame(updateStickyVisualTimeHeaders);
+ persistState();
 }
+window.addEventListener("scroll",updateStickyVisualTimeHeaders,{passive:true});
+window.addEventListener("resize",updateStickyVisualTimeHeaders,{passive:true});
 visualToggle.addEventListener("click",()=>setVisualMode(!visualMode));
+visualFocusButton.addEventListener("click",()=>{
+ visualFocusSelect.value=visualFocusSelect.value==="upcoming"?"all":"upcoming";
+ visualFocusButton.textContent=visualFocusSelect.value==="all"?"All":"Now";
+ visualFocusButton.setAttribute("aria-label",visualFocusSelect.value==="all"?"Focus on all; switch to now":"Focus on now; switch to all");
+ renderVisualTimetable();
+ requestAnimationFrame(scrollVisualTimetablesToNow);
+ persistState();
+});
+setInterval(()=>{
+ if(visualMode&&!expandedVisualBlock)renderVisualTimetable();
+},60000);
 function updateCurrentDay(){
+ if(visualMode&&portraitSelection.matches){
+   const sections=[...visualTimetableContent.querySelectorAll(".visual-day")];
+   if(!sections.length){currentDayLabel.textContent="";return}
+   const marker=currentDay.getBoundingClientRect().bottom;
+   let best=sections[0];
+   sections.forEach(section=>{
+     if(section.getBoundingClientRect().top<=marker+1)best=section;
+   });
+   currentDayLabel.textContent=best.dataset.day==="f"?"FRIDAY":"SATURDAY";
+   return;
+ }
  const visible=R.filter(r=>r.style.display!=="none");
  if(!visible.length){currentDayLabel.textContent="";return}
  const top=currentDay.getBoundingClientRect().bottom;
@@ -2927,8 +4067,13 @@ function updateCurrentDay(){
 }
 window.addEventListener("scroll",updateCurrentDay,{passive:true});
 [SS,F,S].forEach(x=>x.addEventListener("change",()=>requestAnimationFrame(updateCurrentDay)));
+restoringState=true;
+const restoreVisualMode=applySavedState();
 filterSort();
 updateCurrentDay();
+if(restoreVisualMode&&chosen().length)setVisualMode(true);
+restoringState=false;
+persistState();
 })();
 </script></body>
 </html>
